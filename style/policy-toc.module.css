@@ -1,0 +1,38 @@
+.toc h2 {
+  font-size: var(--text-eyebrow) !important;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 0 0.75rem !important;
+}
+.toc h2::before {
+  display: none !important;
+}
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.toc li {
+  border-bottom: 1px solid var(--line);
+}
+.toc a {
+  display: block;
+  padding: 0.7rem 0;
+  font-size: 0.9375rem;
+  color: var(--ink-body);
+  transition: color var(--dur-fast) var(--ease-out), padding var(--dur) var(--ease-out);
+}
+.toc a:hover {
+  color: var(--ink);
+  padding-left: 0.4rem;
+}
+.toc li[data-on='true'] a {
+  color: var(--primary);
+  font-weight: 600;
+  padding-left: 0.4rem;
+}

@@ -227,13 +227,26 @@ export default function Index() {
 
       <section className={css.map}>
         <div className={home.container}>
-          <iframe
-            title="Basat Anwer Technical Services on the map"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14431.026764066815!2d55.330788!3d25.278769!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d402192dbe3%3A0xc16dd8ef0f8006a7!2sBasat%20Anwer%20Technical%20Services%20L.L.C!5e0!3m2!1sen!2s!4v1688467728519!5m2!1sen!2s"
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <div className={css.mapframe}>
+            <iframe
+              title="Basat Anwer Technical Services on the map"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14431.026764066815!2d55.330788!3d25.278769!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d402192dbe3%3A0xc16dd8ef0f8006a7!2sBasat%20Anwer%20Technical%20Services%20L.L.C!5e0!3m2!1sen!2s!4v1688467728519!5m2!1sen!2s"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className={css.mapcard}>
+              <small>Find us</small>
+              <p>Office No G/010 Al Fahad Building, Hor Al Anz, Deira, Dubai</p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Basat+Anwer+Technical+Services+LLC+Dubai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>

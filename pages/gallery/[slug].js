@@ -43,6 +43,11 @@ const GallerySlug = () => {
   // show the facts and overview only once a project has real ones
   const real = projectData.client && !/envato/i.test(projectData.client);
   const others = data.filter((d) => d.slug !== projectData.slug).slice(0, 3);
+  // previous / next among distinct projects (the sample data repeats a slug)
+  const distinct = data.filter((d, i, a) => a.findIndex((x) => x.slug === d.slug) === i);
+  const at = distinct.findIndex((d) => d.slug === projectData.slug);
+  const prev = distinct[(at - 1 + distinct.length) % distinct.length];
+  const next = distinct[(at + 1) % distinct.length];
 
   return (
     <>
@@ -78,6 +83,11 @@ const GallerySlug = () => {
                 </div>
               </>
             )}
+
+            <nav className={css.pn} aria-label="More projects" data-r>
+              <Link href={`/gallery/${prev.slug}`}><small>Previous project</small><strong>{prev.name}</strong></Link>
+              <Link href={`/gallery/${next.slug}`} className={css.pn_next}><small>Next project</small><strong>{next.name}</strong></Link>
+            </nav>
 
             <div className={css.more}>
               <h3 data-r>More projects</h3>

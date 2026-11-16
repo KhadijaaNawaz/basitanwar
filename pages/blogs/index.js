@@ -8,6 +8,7 @@ import css from "@/style/blogs-page.module.css";
 import BlogsCard from '@/components/blogcard/BlogsCard'
 import axios from "axios";
 import Loader from "@/components/Layout/Loader";
+import RecentWork from "@/components/common/RecentWork";
 import AboutHeroSection from "@/components/updated-themes/heroSection/about-herosection";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 import { buildUrl } from "@/config/api.config";
@@ -51,18 +52,14 @@ const Index = () => {
           {loading ? (
             <Loader />
           ) : blogs.length === 0 ? (
-            <div className={css.empty}>
-              <h3>{failed ? "Our blog is being updated" : "No posts yet"}</h3>
-              <p>
-                {failed
-                  ? "We could not load the latest posts just now. Please check back soon, or take a look at what we do."
-                  : "New articles are on the way. In the meantime, take a look at what we do."}
-              </p>
-              <div className={home.row}>
-                <Link href="/services" className={home.btn_dark}>Our services</Link>
-                <Link href="/faqs" className={home.btn_outline}>FAQs</Link>
-              </div>
-            </div>
+            <RecentWork
+              title={failed ? "Our blog is being updated" : "No posts yet"}
+              text={
+                failed
+                  ? "We could not load the latest posts just now. While we fix that, here is some of our recent work."
+                  : "New articles are on the way. In the meantime, here is some of our recent work."
+              }
+            />
           ) : (
             <div className={css.grid}>
               {[...blogs]

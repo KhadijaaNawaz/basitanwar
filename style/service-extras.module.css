@@ -82,3 +82,43 @@
     max-width: 34rem;
   }
 }
+
+/* short promise strip (replaces the photo ribbon on service pages) */
+.promise {
+  background: var(--surface);
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+.promise_list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+.promise_list li {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ink);
+}
+.promise_list span {
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  font-weight: 700;
+  color: var(--primary);
+}
+.promise_list h3 {
+  font-size: var(--text-h3);
+  font-weight: 400;
+  letter-spacing: var(--tracking-heading);
+  color: var(--ink);
+  margin: 0.5rem 0 0.4rem;
+}
+.promise_list p {
+  margin: 0;
+  max-width: 34ch;
+}
+@media (max-width: 767.98px) {
+  .promise_list {
+    grid-template-columns: 1fr;
+  }
+}

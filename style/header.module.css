@@ -95,8 +95,9 @@
     align-items: center;
     gap: 2rem;
     color: var(--text-light);
-    /* soft dark fade so the white links stay readable over any hero */
-    background: linear-gradient(to bottom, rgba(16, 14, 10, 0.55), rgba(16, 14, 10, 0));
+    /* fully transparent over a hero (every hero on the site is dark, and Home's has its own overlay);
+       pages that open light use the .solid bar instead */
+    background: transparent;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

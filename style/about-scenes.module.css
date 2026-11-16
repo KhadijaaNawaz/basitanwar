@@ -112,12 +112,37 @@
 }
 .member_photo img {
   object-fit: cover;
+  object-position: 50% 18%;
+  /* the three portraits were shot in different places: one soft, warm treatment pulls them together */
+  filter: grayscale(0.3) saturate(0.85) contrast(1.02);
+  transition: filter 0.8s var(--ease-out);
+}
+.member_photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(22, 19, 15, 0.2), rgba(22, 19, 15, 0) 45%), rgba(176, 136, 51, 0.1);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 0.8s var(--ease-out);
+}
+.member:hover .member_photo img {
+  filter: none;
+}
+.member:hover .member_photo::after {
+  opacity: 0;
 }
 .member_social {
   display: flex;
   gap: 0.6rem;
 }
+.member_social a svg {
+  display: inline-block; /* Tailwind's preflight makes svg block-level */
+  width: 0.95rem;
+  height: 0.95rem;
+}
 .member_social a {
+  color: var(--ink);
   display: grid;
   place-items: center;
   width: 2.25rem;

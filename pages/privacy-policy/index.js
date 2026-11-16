@@ -4,6 +4,7 @@ import Image from "next/image";
 import Head from "next/head";
 import styles from "./../../styles/blog.module.css"
 import legal from "@/style/legal-page.module.css";
+import PolicyToc from "@/components/common/PolicyToc";
 import AboutHeroSection from "@/components/updated-themes/heroSection/about-herosection";
 
 function PaintingService() {
@@ -135,6 +136,7 @@ function PaintingService() {
           </div>
         </div>
         <div className={styles.image_cont}>
+          <PolicyToc />
           <Image src="/images/privacy.avif" alt="privacy image" width={1200} height={800} sizes="(max-width: 1199px) 92vw, 21rem" />
         </div>
       </div>

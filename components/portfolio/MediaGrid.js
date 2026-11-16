@@ -1,3 +1,4 @@
+import RecentWork from '@/components/common/RecentWork';
 import React from 'react';
 import MediaCard from './MediaCard';
 import PortfolioLoader from './PortfolioLoader';
@@ -23,11 +24,12 @@ const MediaGrid = ({ items, loading, error, mediaType, onItemClick }) => {
   // Error state
   if (error) {
     return (
-      <div className={styles.errorState}>
-        <div className={styles.errorIcon}>⚠️</div>
-        <h3>Our portfolio is being updated</h3>
-        <p>We could not load the portfolio just now.</p>
-        <p className={styles.errorHint}>Please check back soon, or see our <a href="/gallery" style={{ textDecoration: "underline" }}>recent projects</a>.</p>
+      // the portfolio wrapper has no side padding of its own, so inset it to the site container
+      <div style={{ paddingInline: 'max(1.5rem, calc((100vw - var(--container)) / 2 + 1.5rem))' }}>
+        <RecentWork
+          title="Our portfolio is being updated"
+          text="The full portfolio is not available right now. In the meantime, here is some of our recent work."
+        />
       </div>
     );
   }

@@ -3,7 +3,7 @@ import ToolDefs from "@/components/home/ToolDefs";
 import ServicesHero from "@/components/services/ServicesHero";
 import ServiceStack from "@/components/services/ServiceStack";
 import VideoJourney from "@/components/services/VideoJourney";
-import CtaScene from "@/components/home/CtaScene";
+import ServicesClose from "@/components/services/ServicesClose";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 import home from "@/style/home.module.css";
 
@@ -19,7 +19,7 @@ function Index() {
         <ServicesHero />
         <ServiceStack />
         <VideoJourney />
-        <CtaScene />
+        <ServicesClose />
       </div>
       <BottomSection footerheading={"What We Do (Our Services)"} />
     </>

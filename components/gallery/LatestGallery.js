@@ -28,6 +28,7 @@ export default function LatestGallery() {
           <div>
             <span className={home.eyebrow}>Selected work</span>
             <h2 className={css.title}>Our Gallery</h2>
+            <p className={css.count}>{shown.length} {shown.length === 1 ? "project" : "projects"}</p>
           </div>
           <div className={css.filters} role="group" aria-label="Filter projects">
             {FILTERS.map(([key, label]) => (

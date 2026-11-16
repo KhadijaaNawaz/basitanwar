@@ -32,3 +32,7 @@ yarn-error.log*
 # vercel
 .vercel
 .env
+.env*
+
+# local production-build folder (see NEXT_DIST in next.config.js)
+.next-prod

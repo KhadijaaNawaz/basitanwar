@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import team from '@/data/professionalTeam.json'
 import useScene, { reveal } from '@/components/home/useScene'
 import { TEAM } from './content'
@@ -8,9 +10,9 @@ import home from '@/style/home.module.css'
 import css from '@/style/about-scenes.module.css'
 
 const SOCIAL = [
-  { key: 'fbLink', icon: '/updated-images/facebook.png', label: 'Facebook' },
-  { key: 'instaLink', icon: '/updated-images/instagram.png', label: 'Instagram' },
-  { key: 'linkedLink', icon: '/updated-images/linkedin.png', label: 'LinkedIn' },
+  { key: 'fbLink', icon: faFacebookF, label: 'Facebook' },
+  { key: 'instaLink', icon: faInstagram, label: 'Instagram' },
+  { key: 'linkedLink', icon: faLinkedin, label: 'LinkedIn' },
 ]
 
 /**
@@ -50,7 +52,7 @@ export default function TeamScene() {
               <div className={css.member_social} data-meta>
                 {SOCIAL.map((s) => (
                   <Link key={s.key} href={m[s.key]} aria-label={`${m.name} on ${s.label}`} target="_blank" rel="noopener noreferrer">
-                    <Image src={s.icon} alt="" width={18} height={18} />
+                    <FontAwesomeIcon icon={s.icon} />
                   </Link>
                 ))}
               </div>

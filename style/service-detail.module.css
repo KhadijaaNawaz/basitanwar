@@ -146,3 +146,61 @@
   border-left: 3px solid var(--svc, var(--accent-soft));
   color: var(--ink);
 }
+
+/* ---------- article: easier to read ---------- */
+.page [class*='cont1'] [class*='paragraph'] {
+  line-height: 1.85 !important;
+  max-width: 62ch;
+}
+/* the old lettered lists become hairline rows with a small letter in the service colour */
+.page [class*='cont1'] ol,
+.page [class*='cont1'] ul {
+  list-style: none !important;
+  margin: 1rem 0 1.75rem !important;
+  padding: 0 !important;
+  max-width: 62ch;
+  counter-reset: li;
+  border-bottom: 1px solid var(--line);
+}
+.page [class*='cont1'] li {
+  position: relative;
+  list-style: none !important;
+  padding: 0.85rem 0 0.85rem 2.25rem;
+  border-top: 1px solid var(--line);
+  counter-increment: li;
+}
+.page [class*='cont1'] li::before {
+  content: counter(li, lower-alpha);
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--svc, var(--primary));
+}
+.page [class*='cont1'] li b {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+/* ---------- photo card: labels read as small headings, text is no longer tiny ---------- */
+.page [class*='image_cont'] [class*='paragraph'] {
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+.page [class*='image_cont'] b {
+  display: block;
+  margin: 1.1rem 0 0.15rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--svc, var(--primary));
+}
+.page [class*='image_cont'] b:first-child {
+  margin-top: 0;
+}
+.page [class*='image_cont'] br {
+  display: none;
+}
