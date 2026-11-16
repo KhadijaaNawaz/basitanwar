@@ -1,0 +1,154 @@
+/* "What we stand for": values + floating photo ribbon. */
+.sec {
+  background: var(--surface);
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+}
+.label {
+  text-align: center;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 1.5rem;
+}
+.vals {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.5em;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  font-size: clamp(2rem, 4.2vw, 3.75rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+  text-align: center;
+  color: var(--ink);
+}
+.val:nth-child(2) {
+  color: var(--primary);
+}
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.mask > span {
+  display: inline-block;
+}
+
+.rib {
+  position: relative;
+  height: clamp(440px, 42vw, 620px);
+  margin-top: clamp(2.25rem, 4.5vw, 4rem);
+}
+.ph {
+  position: absolute;
+  margin: 0;
+  will-change: transform;
+}
+.in {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.in img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s var(--ease-out);
+}
+.ph:hover img {
+  transform: scale(1.04);
+}
+.ph0 { left: -3.5%; top: 6%; width: 11%; }
+.ph0 .in { aspect-ratio: 3 / 4.2; }
+.ph1 { left: 10%; top: 30%; width: 17%; }
+.ph1 .in { aspect-ratio: 1 / 1.05; }
+.ph2 { left: 28.5%; top: 66%; width: 7.5%; }
+.ph2 .in { aspect-ratio: 1; }
+.ph3 { left: 64.5%; top: 2%; width: 8%; }
+.ph3 .in { aspect-ratio: 1; }
+.ph4 { left: 67%; top: 34%; width: 16%; }
+.ph4 .in { aspect-ratio: 4 / 4.6; }
+.ph5 { left: 88.5%; top: 10%; width: 14%; }
+.ph5 .in { aspect-ratio: 3 / 4; }
+
+.tile {
+  position: absolute;
+  left: 36%;
+  width: 28%;
+  top: 12%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+  color: #fff;
+  padding: clamp(1.75rem, 2.8vw, 2.75rem) clamp(1.4rem, 2.4vw, 2.5rem);
+  border-radius: 28px;
+  background: linear-gradient(165deg, #2a2318, #16130f 65%);
+  box-shadow: 0 30px 60px -30px rgba(22, 19, 15, 0.55);
+}
+.tile h2 {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0;
+}
+.tile p {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 300px;
+  margin: 0;
+}
+
+/* tablets: a smaller ribbon, the card is wider */
+@media (max-width: 1023.98px) {
+  .tile {
+    left: 28%;
+    width: 44%;
+  }
+  .ph3,
+  .ph5 {
+    display: none;
+  }
+}
+/* phones: the card, then the photos as a tidy row */
+@media (max-width: 767.98px) {
+  .rib {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+  }
+  .tile {
+    position: static;
+    grid-column: 1 / -1;
+    width: auto;
+    order: -1;
+  }
+  .ph {
+    position: static;
+    width: auto !important;
+  }
+  .ph3,
+  .ph4,
+  .ph5 {
+    display: none;
+  }
+  .in {
+    aspect-ratio: 1 !important;
+  }
+}

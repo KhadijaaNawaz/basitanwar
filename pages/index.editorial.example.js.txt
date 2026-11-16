@@ -1,0 +1,76 @@
+import React from "react";
+import Head from "next/head";
+
+import css from "@/style/home.module.css";
+import Hero from "@/components/redesign/Hero";
+import Stats from "@/components/editorial/Stats";
+import About from "@/components/editorial/About";
+import Services from "@/components/editorial/Services";
+import Transformation from "@/components/editorial/Transformation";
+import Process from "@/components/editorial/Process";
+import Portfolio from "@/components/editorial/Portfolio";
+import Faq from "@/components/editorial/Faq";
+import FinalCta from "@/components/editorial/FinalCta";
+
+// Kept exactly as before (not part of the editorial redesign):
+import ToolDefs from "@/components/home/ToolDefs";
+import WhyScene from "@/components/home/WhyScene";
+import EmergencyScene from "@/components/home/EmergencyScene";
+import Lottie from "@/components/home/Lottie";
+import { LOTTIE } from "@/components/home/content";
+import ReviewSlider from "@/components/Reviews/reviewSlider";
+import BottomSection from "@/components/updated-themes/layout/bottomSection";
+
+/**
+ * Home page.
+ *
+ *   Hero           protected, unchanged (components/redesign/Hero)
+ *   Stats, About, Services, Transformation, Process, Portfolio, FAQ, Final CTA
+ *                  editorial redesign (components/editorial, style/editorial.module.css)
+ *   Why us, Emergency, Reviews
+ *                  unchanged; Emergency is protected
+ *
+ * Copy for most sections is in components/home/content.js; photographs are
+ * all set in components/editorial/images.js.
+ */
+function Index() {
+  return (
+    <div className={css.home}>
+      <Head>
+        <title>Home-BA Tech L.L.C-Dubai</title>
+        <meta property="og:title" content="Home-BA Tech L.L.C-Dubai" key="title" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap"
+        />
+      </Head>
+
+      <ToolDefs />
+      <Hero />
+      <Stats />
+      <About />
+      <Services />
+      <Transformation />
+      <Process />
+      <WhyScene />
+      <EmergencyScene />
+      <Portfolio />
+
+      <section className={`${css.band} ${css.band_tint}`}>
+        <div className={css.container}>
+          <Lottie src={LOTTIE.support} className={css.support_lottie} label="Customer support" />
+          <ReviewSlider />
+        </div>
+      </section>
+
+      <Faq />
+      <FinalCta />
+
+      <BottomSection footerheading={"Renovation Services and AC Solutions"} />
+    </div>
+  );
+}
+
+export default Index;

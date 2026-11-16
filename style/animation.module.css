@@ -1,0 +1,32 @@
+
+/* -----------------Animation-------------------*/
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+        opacity: 0.2;
+      }
+      16.67% {
+        transform: rotateX(80deg);
+      }
+      33.33% {
+        transform: rotateX(10deg);
+      }
+      50% {
+        transform: rotateX(50deg);
+      }
+      66.67% {
+        transform: rotateX(5deg);
+      }
+      83.33% {
+        transform: rotateX(20deg);
+      }
+      100% {
+        transform: rotateX(2deg);
+      }
+    }
+  
+  .flip {
+    animation: flip 3s ease-in-out;
+  }
+  

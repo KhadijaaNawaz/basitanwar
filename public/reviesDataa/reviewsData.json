@@ -1,0 +1,67 @@
+[
+    {
+      "profileImage": "url_to_image1.jpg",
+      "userName": "Farasat Bhatti",
+      "timeAgo": "10 month ago",
+      "rating": 5,
+      "comment": "I recently hired Basat Anwer Technical Services LLC to renovate my home, and I must say that I am extremely satisfied with their work. From the initial consultation to the final walkthrough, the entire process was smooth and stress-free.",
+      "reviewLink": "https://www.google.com/maps/contrib/103854791326703114097/reviews?hl=en"
+    },
+    {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "abdul sattar",
+        "timeAgo": "7 month ago",
+        "rating": 5,
+        "comment": "Basat Anwer Technical Services LLC truly exceeded my expectations! They recently repaired the tiles on my floors, and I am extremely impressed with their professionalism and expertise.I highly recommend Basat Anwer Technical Services LLC for any tile repair or maintenance needs.",
+        "reviewLink": "https://www.google.com/maps/contrib/108235396208075203715/place/ChIJ49uSIUBdXz4RpwaAD-_YbcE/@25.2769762,55.3272495,16.55z?entry=ttu"
+      },
+      {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "Zubair Warraich",
+        "timeAgo": "6 month ago",
+        "rating": 5,
+        "comment": "Basatanwertech did an exceptional job renovating my bathroom. Their attention to detail, quality craftsmanship, and selection of modern fixtures transformed the space into a spa-like retreat. I highly recommend their services for any bathroom renovation project.",
+        "reviewLink": "https://www.google.com/maps/contrib/103670097064847569164/reviews?hl=en"
+      },
+      {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "Zohaib Aslam",
+        "timeAgo": "6 month ago",
+        "rating": 5,
+        "comment": "Basatanwertech turned my outdated bathroom into a modern oasis. They skillfully managed every aspect of the renovation, from plumbing to tiling, resulting in a stunning and functional space. Their expertise and professionalism are truly commendable",
+        "reviewLink": "https://www.google.com/maps/contrib/115850232689227360516/reviews?hl=en"
+      },
+      {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "Rizwan Hussain",
+        "timeAgo": "9 month ago",
+        "rating": 5,
+        "comment": "I recently had some maintenance work done in my apartment, including floor work and interior designing. I am incredibly impressed with the results. These guys were professional and courteous, and really listened to my ideas and preferences. ",
+        "reviewLink": "https://www.google.com/maps/contrib/110829253185584696324/reviews?hl=en"
+      },
+      {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "Ali Yousaf",
+        "timeAgo": "6 month ago",
+        "rating": 5,
+        "comment": "I am thrilled with Basatanwertech's exterior paint service. Their team meticulously prepared and painted the exterior of my house, delivering impeccable results. The transformation is remarkable, and my house now stands out beautifully in the neighbourhood.",
+        "reviewLink": "https://www.google.com/maps/contrib/100820436293158396278/reviews?hl=en"
+      },
+      {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "Adnan Shah",
+        "timeAgo": "6 month ago",
+        "rating": 5,
+        "comment": "Basatanwertech's exceptional professionalism, attention to detail, and top-notch craftsmanship transformed my villa beyond expectations. Highly recommend their reliable and talented team for remarkable interior ",
+        "reviewLink": "https://www.google.com/maps/contrib/101175903327011402003/reviews?hl=en"
+      },
+      {
+        "profileImage": "url_to_image1.jpg",
+        "userName": "Asad Cheeema",
+        "timeAgo": "6 month ago",
+        "rating": 5,
+        "comment": "I entrusted Basatanwertech with the exterior paint job of my house, and they did an outstanding job. Their team utilized high-quality materials, and the result is a refreshed and eye-catching exterior that greatly enhances the curb appeal. Highly satisfied",
+        "reviewLink": "https://www.google.com/maps/contrib/111283319087931892717/reviews?hl=en"
+      }
+    
+  ]

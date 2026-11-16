@@ -1,0 +1,154 @@
+/* FAQ page body */
+.sec {
+  background: var(--surface);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+.side {
+  position: sticky;
+  top: 7rem;
+}
+.title {
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0.7rem 0 1rem;
+}
+.side p {
+  max-width: 38ch;
+}
+.lottie {
+  width: min(18rem, 80%);
+  aspect-ratio: 3 / 2;
+  margin: 1rem 0 1.25rem;
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.row {
+  border-bottom: 1px solid var(--line);
+}
+.row h3 {
+  margin: 0;
+}
+.row button {
+  display: grid;
+  grid-template-columns: 3rem 1fr 2rem;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.35rem 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink);
+}
+.num {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--ink-muted);
+  transition: color 0.3s ease;
+}
+.q {
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  transition: color 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.row button:hover .q {
+  transform: translateX(4px);
+}
+.row[data-on='true'] .num,
+.row[data-on='true'] .q {
+  color: var(--svc, var(--primary));
+}
+.plus {
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  justify-self: end;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.plus::before,
+.plus::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.7rem;
+  height: 1.5px;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+}
+.plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.row[data-on='true'] .plus {
+  background: var(--svc, var(--primary));
+  border-color: var(--svc, var(--primary));
+  transform: rotate(180deg);
+}
+.row[data-on='true'] .plus::before,
+.row[data-on='true'] .plus::after {
+  background: #fff;
+}
+.row[data-on='true'] .plus::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* answer slides open */
+.a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.a > div {
+  overflow: hidden;
+}
+.row[data-on='true'] .a {
+  grid-template-rows: 1fr;
+}
+.a p {
+  margin: 0;
+  padding: 0 2.75rem 1.5rem 3.75rem;
+  max-width: 62ch;
+}
+
+@media (max-width: 1023.98px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .side {
+    position: static;
+  }
+}
+@media (max-width: 599.98px) {
+  .a p {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .row button {
+    grid-template-columns: 2.25rem 1fr 2rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a,
+  .plus,
+  .q {
+    transition: none;
+  }
+}

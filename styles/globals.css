@@ -1,0 +1,580 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Manrope is self-hosted via next/font (pages/_app.js); no @import of Google Fonts here. */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+  font-family: var(--heading-font);
+}
+
+li {
+  font-family: var(--heading-font);
+}
+
+p{
+}
+
+div,
+span,
+section
+{
+}
+
+/* * {
+  font-family: "Work Sans", sans-serif
+}
+
+:root {
+  --font-family: var(--heading-font);
+  --orange-bg: var(--primary);
+  --text-light: #fff;
+  --text-dark: #000;
+  --purple-heading: var(--dark-blue);
+  --text-gray: #626364;
+  --border: rgba(255, 255, 255, 0.3)
+} */
+
+/************ updated theme **************/
+@font-face {
+  font-family: 'Artegra Sans Alt';
+  src : url('../public/artegra_san_alt/ArtegraSansAltRegularIt.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Artegra Sans Alt';
+  src: url('../public/artegra_san_alt/ArtegraSansAltBold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- brand ----------
+     Warm neutral scheme with a champagne accent, after the reference
+     site. Two accent tones rather than one: --primary is dark enough to
+     carry 12px text on white at AA (4.6:1), while --accent-soft is the
+     light champagne used as a button fill with dark text on top. The
+     reference uses its light tone for both, which fails contrast on
+     small text.                                                        */
+  --primary: #8A6A24;
+  --secondary: #B08833;
+  --accent-soft: #FFCF87;
+  --accent-soft-hover: #FFDCA6;
+  --on-accent: #121A1F;
+  --primary-tint: rgba(138, 106, 36, 0.08);
+  --primary-tint-strong: rgba(138, 106, 36, 0.16);
+  --light-blue: #FAF7F2;
+  --dark-blue: #16130F;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+
+  /* ---------- ink scale ---------- */
+  --ink: #101010;
+  --ink-body: rgba(16, 16, 16, 0.70);
+  /* 0.58, not 0.45: this tone carries 12px uppercase labels (stat labels,
+     founder role, card meta), and 0.45 measured 3.07:1 on white — below AA. */
+  --ink-muted: rgba(16, 16, 16, 0.58);
+  --text-light: #FFFFFF;
+  --text-dark: #101010;
+  --text-gray: rgba(16, 16, 16, 0.70);
+
+  /* ---------- surfaces & lines ---------- */
+  --surface: #FFFFFF;
+  --surface-2: #FAF7F2;
+  --surface-3: #F2EFE9;
+  --line: rgba(16, 16, 16, 0.08);
+  --border-subtle: 1px solid rgba(16, 16, 16, 0.08);
+  --border: rgba(16, 16, 16, 0.08);
+  --overlay: rgba(22, 19, 15, 0.45);
+  --overlay-copy: linear-gradient(45deg, rgba(22, 19, 15, 1), rgba(176, 136, 51, 0));
+  --scrim: linear-gradient(180deg, rgba(16,16,16,0.72) 0%, rgba(16,16,16,0.35) 45%, rgba(16,16,16,0.72) 100%);
+
+  /* ---------- shape ---------- */
+  --radius-card: 1.25rem;
+  --radius-control: 0.75rem;
+  --radius-pill: 999px;
+  --shadow-card: 0 8px 30px -18px rgba(16, 16, 16, 0.35);
+  --shadow-card-hover: 0 18px 44px -20px rgba(16, 16, 16, 0.40);
+  --box-shadow: var(--shadow-card-hover);
+
+  /* ---------- motion ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.35s;
+  --dur-fast: 0.25s;
+
+  /* ---------- type ---------- */
+  --body-font: var(--font-manrope), "Manrope", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  --heading-font: var(--body-font);
+  --font-family: var(--body-font);
+  --body-font-size: 1rem;
+  --lh-body: 1.65;
+  --text-h1: clamp(2.25rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.875rem, 4vw, 3rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --weight-heading: 400;
+  --tracking-heading: -0.01em;
+  --lh-heading: 1.15;
+  --text-eyebrow: 0.75rem;
+  --tracking-eyebrow: 0.18em;
+  --text-btn: 0.875rem;
+  --tracking-btn: 0.045em;
+
+  /* legacy aliases kept so untouched modules keep rendering */
+  --text-lg: var(--text-h1);
+  --text-md: var(--text-h2);
+  --text-md-md: var(--text-h2);
+  --text-sm-screen: var(--text-h2);
+  --text-sm: var(--text-h3);
+  --text-medium: 1.5rem;
+  --title-font-weight: var(--weight-heading);
+  --btn-bg: var(--primary);
+
+  /* ---------- rhythm ---------- */
+  --container: 80rem;
+  --section-y: 3.5rem;
+  --gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-y: 5rem;
+  }
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--body-font-size);
+  line-height: var(--lh-body);
+  color: var(--ink-body);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: var(--body-font);
+  }
+
+
+  /* ------------------------------------- */
+
+.font_family {
+  font-family: var(--font-family);
+}
+
+.yellow,
+.redClr {
+  color: var(--primary) !important;
+}
+
+.purpleHeading {
+  color: var(--ink);
+  font-size: 30px;
+}
+
+.purpleClr {
+  color: var(--ink);
+}
+
+.redBg {
+  background: var(--primary);
+}
+
+.grayClr {
+  color: #626364;
+}
+
+.black-color {
+  color: #000000;
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-next {
+  display: none !important;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0px !important;
+  display: flex !important;
+  display: block;
+  width: 100%;
+  justify-content: center;
+  /* margin: 2px !important; */
+  list-style: none;
+  overflow: hidden !important;
+}
+
+.sliderset .slick-dots{
+  bottom: -30px !important;
+}
+
+/*
+  react-slick absolutely sizes each slide, so cards of differing text length
+  ended up different heights and their content ran over the card below.
+  Making the track a flex row lets every card stretch to the tallest one.
+*/
+.sliderset .slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.sliderset .slick-slide {
+  height: auto !important;
+}
+
+.sliderset .slick-slide > div {
+  height: 100%;
+  display: flex;
+}
+
+.sliderset .slick-list {
+  padding-block: 10px;
+}
+
+.slick-dots li {
+  width: 10px !important;
+  height: 10px !important;
+  margin: 8px !important;
+}
+
+.slick-dots li button:before {
+  font-family: "slick";
+  border-radius: 50% !important;
+  font-size: 13px !important;
+  line-height: 0px !important;
+  position: absolute;
+  top: 0px !important;
+  left: 0;
+  width: 10px !important;
+  height: 10px !important;
+  content: "•";
+  text-align: center;
+  opacity: 0.25;
+  color: var(--secondary) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 10px !important;
+  height: 10px !important;
+  cursor: pointer;
+  color: transparent;
+  background: transparent;
+}
+
+.slick-slider.Carousal1 .slick-prev {
+  left: 4% !important;
+}
+
+.slick-slider.Carousal1 .slick-next {
+  right: 4% !important;
+}
+
+.slick-slider.Carousal1 .slick-prev,
+.slick-slider.Carousal1 .slick-next {
+  font-size: 20px !important;
+  line-height: 0;
+  color: #000 !important;
+  position: absolute;
+  z-index: 999 !important;
+  width: 40px !important;
+  height: 20px;
+}
+
+.slick-prev:before {
+  content: "←";
+  font-size: 20px;
+  width: 20px;
+  color: #dfff !;
+}
+
+.slick-next:before {
+  content: "→";
+}
+
+.hamburger_icon{
+  color: var(--text-light) !important;
+}
+
+.sticky_nav .hamburger_icon{
+  color: var(--text-dark) !important;
+}
+
+.get_teams_solutions {
+  background-image: url(/images/row-bgimage-10.webp);
+  height: 100%;
+  width: 100%;
+  background-position: calc();
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  background-color: var(--dark-blue);
+  background-blend-mode: multiply;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.countsup {
+  background-image: url(../public/images/countup-bg.webp);
+  height: 100%;
+  background-position: calc();
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  background-color: var(--primary);
+  background-blend-mode: multiply;
+}
+
+.grayS {
+  box-shadow: 0 0 25px 0 rgba(41, 61, 88, 0.118);
+}
+
+.grayS-shadow {
+  box-shadow: 0 0 25px 0 rgba(41, 61, 88, 0.249);
+}
+
+.ScrollToTop {
+  background-color: var(--dark-blue) !important;
+  border-radius: 5px;
+  padding: 10px 0 !important;
+}
+
+.ScrollToTop svg path{
+  color: var(--secondary);
+}
+
+header,
+nav {
+  background-color: transparent;
+}
+
+header {
+  height: auto;
+  top: 15px;
+}
+
+header nav.sticky_nav{
+  background-color: #fff !important;
+}
+
+header nav.sticky_nav a div{
+  color: var(--text-dark);
+}
+
+.navbar-nav-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#menu-toggle:checked+#menu {
+  display: block;
+}
+
+/* .testModel{
+  width: 100%;
+} */
+
+
+/* ----------------Gallery----------------- */
+.Gallery-btn-container{
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 30px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 30px;
+}
+
+.gallery-h2{
+  font-size: 32px;
+  font-weight: 600;
+  /* border-bottom: 3px solid var(--primary);
+  border-style: dashed; */
+}
+
+.gallery-btns{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-btns button{
+  background-color: var(--primary);
+  color: var(--text-light);
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 12px;
+  border-radius: 4px;
+  transition: background-color 0.5s ease ;
+}
+
+.gallery-btns button:hover{
+  background-color: var(--secondary);
+}
+
+.fone{
+  z-index: 99;
+}
+
+@media (max-width: 1150px) {
+
+  .Gallery-btn-container{
+    flex-direction: column;
+    padding-left: 40px;
+  }
+
+  .gallery-h2{
+  visibility: hidden;
+  }
+
+}
+
+@media (max-width: 991px) {
+  .ScrollToTop {
+    background-color: var(--primary)e2 !important;
+    border-radius: 5px;
+    padding: 10px 0 !important;
+  }
+
+  .navbar-nav-div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10%;
+    justify-content: start;
+    width: 100%;
+  }
+
+  .getQuote{
+    margin-top: 25px;
+  }
+
+  .blogsubmenu{
+    background-color: transparent !important;
+    margin-left: 22px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .listBottom{
+    border-bottom: #fff 1px solid;
+  }
+
+  .lefty{
+    margin-left: 20px;
+  }
+
+  .gallery-btns button{
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .Gallery-btn-container{
+   padding-top: 1px;
+  }
+}
+
+
+
+@media (max-width: 500px){
+  header nav.sticky_nav a div{
+    color: var(--text-light);
+  }
+
+  .Gallery-btn-container{
+    flex-direction: column;
+    padding-left: 5px;
+  }
+
+  /* .gallery-btns button{
+   font-size: 12px !important;
+  } */
+}
+
+._2qp0Z {
+  right: 20px !important;
+  bottom: 150px !important;
+  z-index: 99;
+}
+
+.contactbtn {
+  scroll-behavior: smooth !important;
+  transition: all 1s ease-in-out !important;
+}
+
+
+/*=============== Contact Us Page =============*/
+
+.contact_page{
+  padding: 115px 35px;
+}
+
+/* ------- submenu in nav ---------- */
+@media (max-width: 972px){
+
+.blogsubmenu{
+  position: relative !important;
+  left: 0% !important;
+  margin-top: 2% !important;
+  top: 0% !important;
+}
+
+.navMobile{
+ overflow-y: auto;
+}
+
+}
+
+.navbar_li{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

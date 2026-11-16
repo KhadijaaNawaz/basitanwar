@@ -1,0 +1,451 @@
+/* --------------------------------------- */
+/*              About Page                 */
+/* --------------------------------------- */
+
+.about_updated_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: var(--section-y);
+    margin-bottom: 0;
+}
+
+.sub_cont {
+    width: 100%;
+    max-width: var(--container);
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4.5rem);
+    justify-content: center;
+    align-items: center;
+}
+
+.abt_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.abt_cont .button_div {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.abt_img_update {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+
+.abt_img_update img {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+}
+
+
+/* --------------------------------------- */
+/*       About Shared Component            */
+/* --------------------------------------- */
+
+.section_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.section_title,
+.section_description {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section_title {
+    margin-top: 0;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+}
+
+.section_title h2 {
+    text-align: start;
+    color: var(--ink);
+    font-size: var(--text-h2);
+    font-weight: var(--weight-heading);
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--lh-heading);
+    text-wrap: balance;
+}
+
+.section_description p {
+    font-size: 1.125rem;
+    color: var(--ink-body);
+    margin-top: 0;
+    font-weight: 400;
+    text-align: start;
+    letter-spacing: 0;
+    line-height: var(--lh-body);
+    max-width: 62ch;
+}
+
+.home {
+    width: 100%;
+    padding-block: var(--section-y);
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------------------------------------- */
+/*       About Images Component            */
+/* --------------------------------------- */
+
+.about_images_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    place-items: center;
+}
+
+.about_images_cont .img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.abt_left_cont .abt_counter{
+    color: var(--dark-blue);
+}
+
+.abt_left_cont .counter_size{
+    color: var(--dark-blue);
+}
+
+.abt_counter {
+    width: 250px;
+    height: 130px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
+    background-color: var(--secondary);
+}
+
+.abt_counter p {
+    font-size: var(--body-font-size);
+}
+
+.counter_text {
+    font-size: 52px;
+}
+
+.percentage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+}
+
+.counter_size {
+    font-size: var(--text-md-md);
+    font-weight: 500;
+    color: var(--text-light);
+    margin-right: 6px;
+}
+
+.abt_left_cont {
+    margin-right: 20px;
+    width: 100%;
+}
+
+.abt_right_cont {
+    margin-top: 100px;
+    width: 100%;
+}
+
+.abt_right_cont .abt_counter {
+    background-color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.abt_right_cont .img {
+    height: 250px;
+    width: 250px;
+}
+
+/* --------------------------------------- */
+/*      Professional Team                  */
+/* --------------------------------------- */
+
+.pro_team_cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+}
+
+.professional_cont {
+    width: 80%;
+    background-color: var(--primary);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.teamContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.teamMember {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.teamMember h3 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+    color: var(--text-light);
+}
+
+.teamMember p {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+.teamImage {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.data .section_title h2 {
+    text-align: start;
+    color: var(--text-light);
+    font-weight: var(--weight-heading);
+}
+
+.data .section_description p {
+    color: rgba(255, 255, 255, 0.80);
+}
+
+/* ------------------ blog home component------------ */
+.blog_hom_cont {
+    width: 100%;
+    max-width: var(--container);
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+    padding-block: var(--section-y);
+}
+
+.blog_card_cont {
+    width: 98%;
+    margin-top: 40px;
+}
+
+.bloggg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----------- Questions ------------ */
+.Questioning_cont {
+    width: 100%;
+    padding-block: var(--section-y);
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--surface-2);
+    border-block: var(--border-subtle);
+}
+
+.questions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--container);
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+    margin-top: 3rem;
+}
+
+.faqImage {
+    width: 100%;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+
+.faqImage img {
+    border-radius: var(--radius-card);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.Q_A {
+    width: 100%;
+    margin-left: 0;
+}
+
+
+
+
+
+
+
+@media (max-width: 1260px) {
+
+    .sub_cont {
+        width: 90%;
+    }
+
+
+}
+
+@media (max-width: 1024px) {
+
+    .sub_cont {
+        flex-direction: column;
+    }
+
+    .abt_left_cont {
+        margin-top: 20px;
+    }
+
+    .abt_left_cont .img {
+        width: 100%;
+    }
+
+    .abt_right_cont .img {
+        width: 100%;
+    }
+
+    .abt_left_cont .abt_counter {
+        width: 100%;
+    }
+
+    .abt_right_cont .abt_counter {
+        width: 100%;
+    }
+
+    .professional_cont {
+        width: 95%;
+    }
+
+    .teamMember {
+        margin-bottom: 20px;
+    }
+
+    .abt_cont {
+        width: 60%;
+        margin-top: 20px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .abt_cont .button_div {
+        width: max-content;
+    }
+
+    .sub_cont {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .questions {
+        grid-template-columns: minmax(0, 1fr);
+        flex-direction: column;
+        width: 98%;
+    }
+
+    .Q_A {
+        width: 94%;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .section_title h2 {
+        font-size: var(--text-medium) !important;
+        line-height: 1.5;
+    }
+
+
+}
+
+@media (max-width: 500px) {
+
+    .abt_right_cont .img {
+        height: 180px;
+    }
+
+    .section_wrapper {
+        width: 100%;
+    }
+
+    .teamImage {
+        width: 250px;
+        height: 250px;
+        border-radius: 10px;
+    }
+
+    .abt_counter p {
+        font-size: 12px;
+    }
+    .abt_cont {
+        width: 90%;
+    }
+    .abt_img_update{
+        justify-content: center;
+        align-items: center;
+    }
+    .abt_img_update img {
+        height: 280px;
+        width: 85%;
+        margin-top: 30px;
+        object-fit: cover;
+    }
+    .sub_cont {
+        flex-direction: column-reverse;
+    }
+}

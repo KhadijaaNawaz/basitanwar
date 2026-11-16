@@ -1,0 +1,96 @@
+/* Sidebar on the service pages. */
+.side {
+  position: sticky;
+  top: 7rem;
+  display: grid;
+  gap: 1.5rem;
+}
+.side h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+.side ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.side li {
+  border-bottom: 1px solid var(--line);
+}
+.side li a {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  align-items: center;
+  padding: 0.7rem 0;
+  font-size: 0.9375rem;
+  color: var(--ink-body);
+  transition: color 0.25s ease, padding 0.25s ease;
+}
+.side li a span {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+.side li a:hover {
+  color: var(--ink);
+  padding-left: 0.4rem;
+}
+.side li[data-on='true'] a {
+  color: var(--primary);
+  font-weight: 600;
+}
+.side li[data-on='true'] a span {
+  color: var(--primary);
+}
+.ask {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--surface-2);
+  border-radius: 20px;
+}
+.ask img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.ask h3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0.4rem 0 0;
+}
+.ask p {
+  font-size: 0.875rem;
+  margin: 0;
+}
+.ask a:first-of-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.6rem;
+  border-radius: 999px;
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: var(--tracking-btn);
+  text-transform: uppercase;
+  justify-self: start;
+  background: var(--ink);
+  color: #fff;
+}
+.ask a:last-of-type {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+@media (max-width: 1023.98px) {
+  .side {
+    position: static;
+  }
+}

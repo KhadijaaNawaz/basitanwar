@@ -1,0 +1,216 @@
+/* Contact page body */
+.sec {
+  background: var(--surface);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+.sec svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+.title {
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0.7rem 0 1rem;
+}
+.info > p {
+  max-width: 44ch;
+}
+.cards {
+  list-style: none;
+  margin: 2rem 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.cards li {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 1.1rem;
+  background: var(--surface-2);
+  border-radius: 12px;
+  color: var(--ink);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cards li:hover {
+  transform: translateX(6px);
+}
+.cards li > svg {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.8rem;
+  background: #fff;
+  color: var(--primary);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.cards li span {
+  display: grid;
+  gap: 0.15rem;
+  font-size: 0.9375rem;
+}
+.cards li small {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+.cards a:hover {
+  color: var(--primary);
+}
+.social {
+  display: flex;
+  gap: 0.6rem;
+}
+.social a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.social a:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+/* form */
+.form {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 30px 60px -40px rgba(16, 16, 16, 0.3);
+}
+.form h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+.field {
+  position: relative;
+  display: block;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 1.55rem 1rem 0.6rem;
+  background: var(--surface-2);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--primary);
+  background: #fff;
+}
+/* label floats up once the field has focus or content (placeholder is a single space) */
+.field span {
+  position: absolute;
+  left: 1rem;
+  top: 1.05rem;
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), font-size 0.25s ease, color 0.25s ease;
+  transform-origin: left top;
+}
+.field input:focus + span,
+.field input:not(:placeholder-shown) + span,
+.field textarea:focus + span,
+.field textarea:not(:placeholder-shown) + span {
+  transform: translateY(-0.65rem);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary);
+}
+.err {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  font-style: normal;
+  color: #b3261e;
+}
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.6rem;
+  border-radius: 999px;
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: var(--tracking-btn);
+  text-transform: uppercase;
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.submit:hover:not(:disabled) {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.note {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.map {
+  background: var(--surface);
+  padding: 0 0 clamp(3.5rem, 7vw, 6rem);
+}
+.map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(18rem, 36vw, 28rem);
+  border: 0;
+  border-radius: 28px;
+  filter: grayscale(0.25) contrast(1.02);
+}
+
+@media (max-width: 1023.98px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 599.98px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+}

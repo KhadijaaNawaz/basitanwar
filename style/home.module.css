@@ -1,0 +1,1082 @@
+/* ==========================================================================
+   Home page — "3D minimal" scroll journey.
+   Layout of every scene lives here. Scroll motion is layered on by GSAP
+   (components/home/*), which toggles the `*_pinned` classes below on desktop.
+   The base rules are the finished, static layout, so phones and
+   prefers-reduced-motion visitors get a clean page with no animation code.
+
+   Re-skin: edit the --tool-* variables (tool colours) and the tokens in
+   styles/globals.css (brand colours). Copy lives in components/home/content.js.
+   ========================================================================== */
+
+.home {
+  /* tool palette: each tool is shaded hi → mid → lo */
+  --tool-steel-hi: #f7f9fb;
+  --tool-steel-mid: #bcc3cb;
+  --tool-steel-lo: #6e7782;
+  --tool-accent-hi: #ffe3b0;
+  --tool-accent-mid: #f0b957;
+  --tool-accent-lo: #b4812a;
+  --tool-ink-hi: #4b4f56;
+  --tool-ink-mid: #262a2f;
+  --tool-ink-lo: #101113;
+  --tool-white-hi: #ffffff;
+  --tool-white-mid: #f3f0ea;
+  --tool-white-lo: #d8d3c8;
+
+  --room: #16130f; /* the one dark panel (emergency) */
+  --edge: max(1.5rem, calc((100vw - var(--container)) / 2 + 1.5rem));
+  color: var(--ink-body);
+  background: var(--surface);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ---------- shared type & buttons ---------- */
+.eyebrow,
+.eyebrow_light {
+  display: inline-block;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary);
+}
+.eyebrow_light {
+  color: var(--accent-soft);
+}
+.title {
+  font-size: var(--text-h2);
+  margin: 0.6rem 0 0.9rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.intro_p {
+  max-width: 46ch;
+  color: var(--ink-body);
+}
+.lead {
+  max-width: 52ch;
+  font-size: 1.0625rem;
+  margin: 1.5rem 0 2rem;
+}
+.head_stack {
+  margin-bottom: 2.5rem;
+}
+.head_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem 1.25rem;
+}
+.btn,
+.btn_dark,
+.btn_light,
+.btn_outline {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 1.6rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: var(--tracking-btn);
+  text-transform: uppercase;
+  transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast), color var(--dur-fast);
+}
+.btn {
+  background: var(--accent-soft);
+  color: var(--on-accent);
+}
+.btn:hover {
+  background: var(--accent-soft-hover);
+  transform: translateY(-2px);
+}
+.btn_dark {
+  background: var(--ink);
+  color: #fff;
+}
+.btn_dark:hover {
+  transform: translateY(-2px);
+  background: #000;
+}
+.btn_light {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+.btn_light:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+.btn_outline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.btn_outline:hover {
+  background: var(--ink);
+  color: #fff;
+}
+.link_arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+.arrow {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform var(--dur) var(--ease-out);
+}
+.link_arrow:hover .arrow,
+.card_link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Scenes 1–2: hero → intro
+   ========================================================================== */
+.opening {
+  position: relative;
+  overflow-x: clip;
+}
+
+.hero {
+  position: relative;
+  z-index: 3; /* above .intro so the travelling wrench can cross into it */
+  min-height: max(640px, 100vh);
+  min-height: max(640px, 100svh);
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+}
+.hero_video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--room);
+}
+.hero_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero_scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 14, 10, 0.5);
+}
+.hero_inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 8rem 1.5rem 4.5rem;
+}
+.hero_copy {
+  max-width: 40rem;
+}
+.hero_eyebrow {
+  display: inline-block;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-soft);
+}
+.hero_title {
+  color: #fff;
+  font-size: clamp(2.5rem, 6.4vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  margin: 1rem 0 1.25rem;
+}
+.hero_sub {
+  max-width: 34rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.0625rem;
+  margin-bottom: 2rem;
+}
+
+.traveler {
+  position: absolute;
+  z-index: 5;
+  right: 7vw;
+  top: 20%;
+  width: min(34vw, 520px);
+  transform: rotate(-35deg);
+  transform-origin: 18% 50%; /* the jaw, so scale/rotate pivot on it */
+  perspective: 1000px;
+  pointer-events: none;
+  will-change: transform;
+}
+.wrench_box {
+  transform-origin: 18% 50%;
+  transform-style: preserve-3d;
+}
+.wrench_svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 22px rgba(0, 0, 0, 0.32));
+}
+
+.intro {
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  padding: clamp(4rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+}
+.intro_grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+}
+.statement {
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0.9rem 0 0;
+}
+.bolt_slot {
+  display: grid;
+  place-items: center;
+}
+.bolt_svg {
+  width: min(360px, 80%);
+  aspect-ratio: 1;
+}
+.support_lottie {
+  width: min(22rem, 70%);
+  aspect-ratio: 3 / 2;
+  margin: 0 auto 1.5rem;
+}
+.emerg_clock {
+  width: 8.5rem;
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--surface-2);
+  border-radius: 1.75rem;
+}
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.25rem;
+}
+.founder img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.founder strong {
+  display: block;
+  color: var(--ink);
+}
+.founder span {
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.stats dt {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.stats dd {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.wipe {
+  position: relative;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  aspect-ratio: 21 / 9;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--room);
+}
+.wipe video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.wipe_badge {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0.9rem 1.25rem;
+  display: grid;
+}
+.wipe_badge strong {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+}
+.wipe_badge span {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero_eyebrow,
+  .hero_title,
+  .hero_sub,
+  .hero_copy .row {
+    animation: rise 0.9s var(--ease-out) both;
+  }
+  .hero_title {
+    animation-delay: 0.1s;
+  }
+  .hero_sub {
+    animation-delay: 0.2s;
+  }
+  .hero_copy .row {
+    animation-delay: 0.3s;
+  }
+  .wrench_box {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes float {
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+/* ==========================================================================
+   Scenes 3–4: services → transformation
+   ========================================================================== */
+.svc {
+  position: relative;
+  background: var(--surface-2);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+.svc_meta {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+.counter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.counter b {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.counter span {
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+.counter em {
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.svc_viewport {
+  max-width: var(--container);
+  margin: 2.5rem auto 0;
+  padding-inline: 1.5rem;
+}
+.svc_track {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.25rem;
+}
+.svc_final {
+  display: none;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  transition: box-shadow var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+.card[data-on='true'] {
+  box-shadow: var(--shadow-card-hover);
+}
+.card_link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+.card_num {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+.card_stage {
+  flex: 1;
+  min-height: 11rem;
+  display: grid;
+  place-items: center;
+  perspective: 700px;
+}
+.card_tool {
+  width: min(10.5rem, 72%);
+  height: auto;
+  transform: rotateY(-14deg) rotateX(6deg);
+  filter: drop-shadow(0 16px 12px rgba(16, 16, 16, 0.18));
+  transition: transform 0.7s var(--ease-out);
+}
+.card[data-on='true'] .card_tool,
+.card:hover .card_tool {
+  transform: rotateY(18deg) rotateX(-4deg) translateY(-10px) scale(1.1);
+}
+.card_title {
+  font-size: 1.375rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.card_desc {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9375rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card_more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* the transformation video, static layout */
+.expand {
+  position: relative;
+  width: calc(100% - 3rem);
+  max-width: calc(var(--container) - 3rem);
+  margin: 3rem auto 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--room);
+  color: #fff;
+}
+.expand video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.expand_label {
+  display: none;
+}
+.expand_caption {
+  padding: 1.75rem;
+}
+.expand_caption p {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 44ch;
+  margin: 0.75rem 0 1.5rem;
+}
+.expand_title {
+  color: #fff;
+  font-size: var(--text-h2);
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+}
+
+/* phones/tablets: a native swipe track instead of a grid */
+@media (max-width: 1023.98px) {
+  .svc_viewport {
+    padding-inline: 0;
+  }
+  .svc_track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 0.5rem 1.5rem 1.5rem;
+    scrollbar-width: none;
+  }
+  .svc_track::-webkit-scrollbar {
+    display: none;
+  }
+  .card {
+    flex: 0 0 min(78vw, 20rem);
+    scroll-snap-align: center;
+  }
+}
+
+/* ---- desktop pinned mode (class added by ServicesScene) ---- */
+.svc_pinned {
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  padding: 148px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.svc_pinned .svc_head {
+  will-change: transform, opacity;
+}
+.svc_pinned .svc_viewport {
+  flex: 1;
+  min-height: 0;
+  max-width: none;
+  width: 100%;
+  margin: 1.5rem 0 0;
+  padding: 0 0 2.5rem;
+  display: flex;
+  align-items: stretch;
+}
+.svc_pinned .svc_track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding: 0 var(--edge);
+  overflow: visible;
+  will-change: transform;
+}
+.svc_pinned .card {
+  flex: 0 0 21rem;
+  max-height: 31rem;
+  align-self: center;
+  height: 100%;
+}
+.svc_pinned .svc_final {
+  display: block;
+  flex: 0 0 min(34rem, 44vw);
+  max-height: 31rem;
+  align-self: center;
+  height: 100%;
+}
+.svc_pinned .expand {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  pointer-events: none;
+  will-change: clip-path;
+}
+.svc_pinned .expand[data-live='true'] {
+  pointer-events: auto;
+}
+.svc_pinned .expand video {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  aspect-ratio: auto;
+}
+.svc_pinned .expand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 14, 10, 0.4);
+  pointer-events: none;
+}
+.svc_pinned .expand_label {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.svc_pinned .expand_caption {
+  position: absolute;
+  z-index: 2;
+  left: var(--edge);
+  bottom: 4.5rem;
+  max-width: 34rem;
+  padding: 0;
+}
+
+/* ==========================================================================
+   Scene 5: process
+   ========================================================================== */
+.proc {
+  background: var(--surface);
+}
+.proc_pin {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+.proc_grid {
+  display: grid;
+  gap: 1rem;
+}
+.rail {
+  display: none;
+}
+.proc_stage {
+  display: grid;
+  place-items: center;
+}
+.proc_svg {
+  width: min(20rem, 80%);
+  aspect-ratio: 1;
+}
+.proc_steps {
+  list-style: none;
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 1.25rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-card);
+}
+.step_tool {
+  flex: none;
+  width: 4.25rem;
+  height: 4.25rem;
+  filter: drop-shadow(0 8px 6px rgba(16, 16, 16, 0.15));
+}
+.step_num {
+  display: none;
+}
+.step h3 {
+  font-size: 1.375rem;
+  color: var(--ink);
+}
+.step p {
+  margin-top: 0.4rem;
+}
+
+.proc_pinned .proc_pin {
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 148px 0 1.5rem;
+}
+.proc_pinned .head_stack {
+  margin-bottom: 1.5rem;
+}
+.proc_pinned .proc_grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.proc_pinned .proc_stage {
+  display: block;
+  position: relative;
+  height: min(26rem, 52vh);
+  perspective: 1100px;
+}
+.proc_pinned .proc_tool {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.proc_pinned .proc_svg {
+  width: min(26rem, 100%);
+  max-height: 100%;
+}
+.proc_pinned .proc_steps {
+  gap: 0.25rem;
+  padding-left: 2.75rem;
+}
+.proc_pinned .rail {
+  display: block;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: var(--line);
+}
+.proc_pinned .rail i {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.proc_pinned .step {
+  background: transparent;
+  padding: 0.75rem 0;
+  opacity: 0.3;
+  transition: opacity 0.5s var(--ease-out);
+  position: relative;
+}
+.proc_pinned .step[data-active='true'] {
+  opacity: 1;
+}
+.proc_pinned .step[data-active='done'] {
+  opacity: 0.6;
+}
+.proc_pinned .step_tool {
+  display: none;
+}
+.proc_pinned .step_num {
+  display: block;
+  position: absolute;
+  left: -2.75rem;
+  top: 0.8rem;
+  width: 1.5rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  background: var(--surface);
+  padding: 0.15rem 0;
+}
+.proc_pinned .step h3 {
+  font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   Scene 6: why us
+   ========================================================================== */
+.why {
+  overflow-x: clip; /* cards start off to the sides while they assemble */
+  background: var(--surface-2);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+.why_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  perspective: 1200px;
+}
+.why_card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  will-change: transform;
+}
+.why_tool {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 12px 8px rgba(16, 16, 16, 0.16));
+}
+.why_card h3 {
+  font-size: 1.5rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+@media (max-width: 767.98px) {
+  .why_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Scene 7: emergency — the lights-on room
+   ========================================================================== */
+.emerg {
+  background: var(--surface);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+.emerg_card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--room);
+  border-radius: 32px;
+  overflow: hidden;
+  color: #fff;
+}
+.emerg_copy {
+  padding: clamp(2rem, 5vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.emerg_copy h2 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.02em;
+}
+.emerg_copy p {
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 34ch;
+}
+.emerg_bulb {
+  width: 6.5rem;
+  margin-bottom: 0.5rem;
+}
+.emerg_bulb_svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.emerg [data-bulb-on] {
+  opacity: 1; /* static layout = lights on */
+}
+.emerg_phone {
+  display: grid;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 300;
+  color: var(--accent-soft);
+  letter-spacing: -0.01em;
+  margin: 0.5rem 0;
+}
+.emerg_phone small {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+}
+.emerg_media {
+  position: relative;
+  min-height: 22rem;
+}
+.emerg_media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.emerg_dim {
+  position: absolute;
+  inset: 0;
+  background: var(--room);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (max-width: 899.98px) {
+  .emerg_card {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+  .emerg_media {
+    min-height: 15rem;
+  }
+}
+
+/* ==========================================================================
+   Scenes 8–9: work, reviews, FAQ, CTA
+   ========================================================================== */
+.work {
+  background: var(--surface);
+  padding: 0 0 clamp(4rem, 8vw, 7rem);
+}
+.work .head_row {
+  margin-bottom: 2.5rem;
+}
+.band {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+.band_tint {
+  background: var(--surface-2);
+}
+.faq_narrow {
+  max-width: 52rem;
+  margin: 2rem auto 0;
+}
+.center {
+  text-align: center;
+}
+.center .intro_p {
+  margin-inline: auto;
+}
+
+.cta {
+  background: var(--surface-2);
+  padding: clamp(4rem, 9vw, 8rem) 0;
+  overflow-x: clip;
+}
+.cta_grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+.cta_title {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.05;
+}
+.cta_phone {
+  display: grid;
+}
+.cta_phone small {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+.cta_phone strong {
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.cta_box {
+  display: grid;
+  place-items: center;
+}
+.cta_box_svg {
+  width: min(26rem, 100%);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 28px 22px rgba(16, 16, 16, 0.2));
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1023.98px) {
+  .intro_grid {
+    grid-template-columns: 1fr;
+  }
+  .bolt_svg {
+    width: min(240px, 60%);
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .traveler {
+    width: 68vw;
+    right: -10vw;
+    top: 15%;
+  }
+  .wipe {
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+  }
+  .cta_grid {
+    grid-template-columns: 1fr;
+  }
+  .cta_box {
+    order: -1;
+  }
+  .hero_inner {
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* Closing CTA: 24/7 clock badge */
+.cta_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.25rem 0.4rem 0.4rem;
+  background: var(--surface);
+  border-radius: 999px;
+}
+.cta_clock {
+  width: 4.25rem;
+  aspect-ratio: 1;
+  background: var(--surface-2);
+  border-radius: 50%;
+}
+.cta_badge span {
+  display: grid;
+  line-height: 1.1;
+}
+.cta_badge strong {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cta_badge small {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.cta_clock_card {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  width: min(26rem, 100%);
+  text-align: center;
+}
+.cta_clock_big {
+  width: min(20rem, 80%);
+  aspect-ratio: 1;
+}
+.cta_clock_card strong {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+.cta_clock_card small {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-muted);
+}

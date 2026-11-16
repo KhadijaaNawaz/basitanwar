@@ -1,0 +1,287 @@
+/* Services page: light and playful. Tokens and buttons come from home.module.css. */
+
+/* ---------- hero ---------- */
+.hero {
+  background: var(--surface-2);
+  /* the header bar is 88px and overlays the top of the page */
+  padding: clamp(8rem, 10vw, 9.5rem) 0 clamp(3rem, 6vw, 5rem);
+  overflow: hidden;
+}
+.hero_grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: min(68vh, 36rem);
+}
+.crumbs {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.crumbs a:hover {
+  color: var(--primary);
+}
+.crumbs [aria-current] {
+  color: var(--ink);
+}
+.headline {
+  display: grid;
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 0.6rem 0 1.5rem;
+}
+/* the rolling word: a one-line window over a tall column of words */
+.roll {
+  display: block;
+  /* rows are taller than the text so a descender (the p of "plumbed") never pokes into the next row */
+  height: 1.3em;
+  margin-top: -0.22em;
+  overflow: hidden;
+  color: var(--primary);
+}
+.roll_track {
+  display: block;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.roll_track span {
+  display: block;
+  height: 1.3em;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+.sub {
+  max-width: 44ch;
+  font-size: 1.0625rem;
+  margin: 0 0 2rem;
+}
+
+/* tool stage */
+.stage_wrap {
+  display: grid;
+  place-items: center;
+  perspective: 1000px;
+}
+.stage {
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  width: min(100%, 27rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.25s ease-out;
+  transform-style: preserve-3d;
+}
+.halo {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, var(--accent-soft) 70%);
+  box-shadow: 0 40px 60px -30px rgba(176, 136, 51, 0.55);
+}
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(138, 106, 36, 0.45);
+  animation: spin 40s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.slot {
+  position: absolute;
+  inset: 16%;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateZ(40px) rotate(-40deg) scale(0.6);
+  transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.slot[data-on='true'] {
+  opacity: 1;
+  transform: translateZ(60px) rotate(0) scale(1);
+}
+.hero_tool {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 26px 22px rgba(16, 16, 16, 0.28));
+  animation: bob 4s ease-in-out infinite;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.stage_tag {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%) translateZ(80px);
+  padding: 0.5rem 1.1rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------- stacking slabs ---------- */
+.stack {
+  background: var(--surface-2);
+  padding: 0 0 clamp(4rem, 8vw, 7rem);
+}
+.stack_head {
+  padding: clamp(1rem, 3vw, 2rem) 0 2rem;
+}
+.slabs {
+  display: grid;
+  gap: 1.25rem;
+}
+.slab {
+  scroll-margin-top: 7rem;
+}
+.slab_body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  will-change: transform;
+}
+.slab_text {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.75rem;
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+}
+.big {
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.9;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--primary);
+}
+.slab_text h3 {
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0;
+}
+.slab_text p {
+  max-width: 40ch;
+  margin: 0;
+}
+.slab_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.6rem;
+  border-radius: 999px;
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: var(--tracking-btn);
+  text-transform: uppercase;
+  gap: 0.5rem;
+  background: var(--ink);
+  color: #fff;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.slab_link:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+.slab_tool {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+  width: 4.25rem;
+  height: 4.25rem;
+  filter: drop-shadow(0 10px 8px rgba(16, 16, 16, 0.18));
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.slab:hover .slab_tool {
+  transform: rotate(-14deg) scale(1.12);
+}
+.slab_photo {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+}
+.slab_photo img {
+  object-fit: cover;
+  transform: scale(1.18);
+}
+
+@media (min-width: 1024px) {
+  .slabs {
+    gap: 2rem;
+  }
+  /* each slab parks under the header; the next one slides over it */
+  .slab {
+    position: sticky;
+    top: calc(6.25rem + var(--i) * 0.6rem);
+  }
+  .slab_body {
+    height: min(68vh, 31rem);
+  }
+  .slab_photo {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .hero {
+    padding-top: 2.5rem;
+  }
+  .hero_grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .stage {
+    width: min(78%, 20rem);
+  }
+  .slab_body {
+    grid-template-columns: 1fr;
+  }
+  .slab_photo {
+    order: -1;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+@media (max-width: 599.98px) {
+  .slab_tool {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring,
+  .hero_tool {
+    animation: none;
+  }
+  .roll_track,
+  .slot,
+  .stage {
+    transition: none;
+  }
+}

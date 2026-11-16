@@ -1,0 +1,93 @@
+[
+    {
+      "slug": "interior-design",
+        "name": "Interior Design",
+        "status": "Home Maintenance", 
+        "img": "/images/tvroom.png",
+        "client":"Envato Corps",
+        "Type":"Air Conditioning",
+        "Location":"New York, USA",
+        "Year":"2023",
+        "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+        "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+        "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+      },
+      {
+        "slug": "tiles-repair",
+        "name": "Tiles Repair",
+        "status": "Home Maintenance",
+        "img": "/images/tile1.webp",
+        "client":"Envato Corps",
+        "Type":"Air Conditioning",
+        "Location":"New York, USA",
+        "Year":"2023",
+        "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+        "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+        "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+      },
+          {
+            "slug": "interior-design",
+            "name": "Interior Design",
+            "status": "Home Maintenance",
+            "img": "/images/intr_ds.png",
+            "client":"Envato Corps",
+            "Type":"Air Conditioning",
+            "Location":"New York, USA",
+            "Year":"2023",
+            "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+            "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+            "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+          },
+          {
+            "slug": "flooring-home-maintenance",
+            "name": "Flooring, Home Maintenance",
+            "status": "Drywall Insulation",
+            "img": "/images/04.jpg",
+            "client":"Envato Corps",
+            "Type":"Air Conditioning",
+            "Location":"New York, USA",
+            "Year":"2023",
+            "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+            "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+            "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+          },
+          {
+            "slug": "design-painting",
+            "name": "Design, Painting",
+            "status": "Home Maintenance",
+            "img": "/images/in_ds.jpg",
+            "client":"Envato Corps",
+            "Type":"Air Conditioning",
+            "Location":"New York, USA",
+            "Year":"2023",
+            "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+            "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+            "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+          },
+          {
+            "slug": "interior-design",
+            "name": "Interior Design",
+            "status": "Design & Home Maintenance",
+            "img": "/images/in_ds.png",
+            "client":"Envato Corps",
+            "Type":"Air Conditioning",
+            "Location":"New York, USA",
+            "Year":"2023",
+            "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+            "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+            "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+          },
+          {
+            "slug": "ac-repairing",
+            "name": "AC, Repairing",
+            "status": "AC(Air Condition) & Repairing",
+            "img": "/images/08.jpg",
+            "client":"Envato Corps",
+            "Type":"Air Conditioning",
+            "Location":"New York, USA",
+            "Year":"2023",
+            "projectOverview":"In nisi proident aliqua et nulla ut cillum cupidatat laborum dolore labore commodo voluptate tempor non consequat laboris excepteur ad veniam sunt aliquip exercitation velit laborum aliquip commodo excepteur sed nisi anim anim velit qui dolore anim laboris est dolor incididunt mollit ut ullamco sint adipisicing reprehenderit ad reprehenderit ut magna adipisicing labore laboris laboris fugiat ut eiusmod aliqua dolore minim amet occaecat occaecat amet id excepteur sed dolor consectetur laborum irure in sint et sit nostrud et cupidatat proident ad duis commodo velit velit eu eiusmod laboris anim minim.",
+            "Challenges":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et.",
+            "solutions":"1Lorem ipsum irure ad minim laboris in nostrud consequat ad excepteur eu non est./n/ 2Fugiat amet dolore elit irure in ad ad voluptate nostrud aute ullamco aliqua ut minim elit. /n/ 3Cupidatat magna mollit incididunt culpa cillum non eu sunt est est duis nisi anim sunt ut sed. /n/ 4 Consectetur dolore esse dolore elit adipisicing culpa ea non deserunt enim ut voluptate irure./n/ 5Culpa tempor amet anim laborum eu sunt esse aute nulla ut elit et."
+          }
+]

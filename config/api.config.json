@@ -1,0 +1,10 @@
+{
+  "BASE_URL": "https://18-218-116-187.nip.io/api/BA-Tech",
+  "endpoints": {
+    "posts": "posts/",
+    "postCategory": "post-category/",
+    "portfolio": "portfolio/",
+    "portfolioImages": "portfolio/images/",
+    "portfolioVideos": "portfolio/videos/"
+  }
+}

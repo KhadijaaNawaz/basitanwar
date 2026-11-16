@@ -1,0 +1,40 @@
+.sec {
+  background: var(--surface);
+  padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(4rem, 8vw, 7rem);
+}
+.head {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+.title {
+  font-size: var(--text-h2);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0.6rem 0 0;
+  max-width: 20ch;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 1.75rem);
+}
+.empty {
+  max-width: 40rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: var(--surface-2);
+  border-radius: 28px;
+}
+.empty h3 {
+  font-size: var(--text-h3);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.empty p {
+  margin: 0 0 1.5rem;
+}
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 599.98px) {
+  .grid { grid-template-columns: 1fr; }
+}

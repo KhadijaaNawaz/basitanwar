@@ -1,0 +1,26 @@
+ [
+    {
+      "img": "/images/basat.jpg",
+     "name": "Muhammad Basat",
+      "status": "Co-founder & CEO",
+      "fbLink": "https://www.facebook.com/abdul.basat.75",
+      "linkedLink":"https://www.linkedin.com/in/muhammad-basat-187b05117/",
+      "instaLink":"https://www.instagram.com/abdul.basat.75?igsh=MTdmZGxvcnp2c2lxeA=="
+    },
+    {
+      "img": "/updated-images/Dp.jpeg",
+     "name": "Siam Hassan",
+      "status": "Software Engineer, Marketing Manager",
+      "fbLink": "https://www.facebook.com/siam.cheema.16",
+      "linkedLink":"https://www.linkedin.com/in/siam-hassan-0b0a5a134/",
+      "instaLink":"https://www.instagram.com/siam_cheema?igsh=MXJqZzQ1Nmp5dWl4YQ%3D%3D&utm_source=qr"
+    },
+    {
+      "img": "/images/fahid.jpg",
+     "name": "Muhammad Fahid",
+      "status": "Engineering Manager",
+      "fbLink": "https://www.facebook.com/fahid.cheema.5",
+      "linkedLink":"https://www.linkedin.com/in/muhammad-fahid-681258104/",
+      "instaLink":"https://www.instagram.com/mr_optimist11?igsh=MWgyZjVtOHZ0NXNtag=="
+    }
+  ]
