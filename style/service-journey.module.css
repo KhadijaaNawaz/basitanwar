@@ -205,3 +205,41 @@
     animation: none;
   }
 }
+
+/* ---------- short screens (laptops 1280x720 / 1366x768): the pinned scene must fit the viewport ---------- */
+@media (min-width: 1024px) and (max-height: 860px) {
+  .pinned {
+    padding: 5.5rem 0 1rem;
+  }
+  .pinned .title {
+    font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+    margin-bottom: 0.7rem;
+  }
+  .pinned .item a {
+    padding: 0.3rem 0;
+  }
+  .pinned .body strong {
+    font-size: 1rem;
+  }
+  .pinned .item[data-on='true'] .body strong {
+    font-size: 1.4rem;
+  }
+  .pinned .desc {
+    font-size: 0.875rem;
+    margin-top: 0.15rem;
+  }
+  .pinned .more {
+    margin-top: 0.35rem;
+  }
+  .pinned .frame {
+    height: min(calc(100vh - 8rem), 44rem);
+  }
+}
+@media (min-width: 1024px) and (max-height: 700px) {
+  .pinned .desc {
+    display: none !important;
+  }
+  .pinned .item a {
+    padding: 0.22rem 0;
+  }
+}

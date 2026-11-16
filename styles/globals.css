@@ -578,3 +578,12 @@ header nav.sticky_nav a div{
   justify-content: flex-start;
   align-items: flex-start;
 }
+/* touch devices: the review slider's 20px arrows get a 40px hit area (invisible, the icon is unchanged) */
+@media (hover: none), (max-width: 900px) {
+  .slick-prev::after,
+  .slick-next::after {
+    content: "";
+    position: absolute;
+    inset: -10px;
+  }
+}

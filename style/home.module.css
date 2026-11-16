@@ -1080,3 +1080,10 @@
   font-weight: 700;
   color: var(--ink-muted);
 }
+
+/* touch: give text links and the review arrows a comfortable (44px) hit area; the look is unchanged */
+@media (max-width: 900px) {
+  .link_arrow {
+    min-height: 44px;
+  }
+}
