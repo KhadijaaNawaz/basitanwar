@@ -361,3 +361,19 @@
     grid-column: 1 / -1;
   }
 }
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    padding-block: 6rem 2rem;
+  }
+  .hero_grid {
+    min-height: 0;
+  }
+  .headline {
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    margin-bottom: 0.75rem;
+  }
+  .stage {
+    width: min(100%, 14rem);
+  }
+}

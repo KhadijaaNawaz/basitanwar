@@ -106,7 +106,7 @@ const AboutHeroSection = ({ head_title, heading }) => {
           {media && (
             <div className={styles.media} data-media>
               {media.video ? (
-                <LoopVideo src={media.video} label={media.alt} />
+                <LoopVideo src={media.video} label={media.alt} poster={media.video.replace("/vedios/", "/vedios/posters/").replace(".mp4", ".jpg")} />
               ) : (
                 <Image src={media.still} alt={media.alt} fill priority sizes="(max-width: 1023px) 92vw, 520px" />
               )}

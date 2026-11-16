@@ -54,7 +54,7 @@ export default function AboutHero() {
       </Head>
       <section ref={root} className={css.ahero}>
         <div className={css.ahero_media} data-photo>
-          <LoopVideo src="/vedios/Engineers_working_on_home_trades_94706f3f_1080p.mp4" label="Our engineers and technicians working on home trades" />
+          <LoopVideo src="/vedios/Engineers_working_on_home_trades_94706f3f_1080p.mp4" label="Our engineers and technicians working on home trades" poster="/vedios/posters/engineers.webp" />
           <div className={css.ahero_fade} />
           <div className={css.chips}>
             {CHIPS.map((c) => (

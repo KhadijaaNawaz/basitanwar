@@ -632,3 +632,18 @@
     animation: none;
   }
 }
+
+/* phones in landscape (short and wide): keep the hero from eating the whole screen */
+@media (max-height: 520px) and (orientation: landscape) {
+  .ahero {
+    min-height: 0;
+    padding: 6rem 0 2.5rem;
+  }
+  .ahero_title {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    margin-bottom: 0.75rem;
+  }
+  .scroll_cue {
+    display: none;
+  }
+}

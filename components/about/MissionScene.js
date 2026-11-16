@@ -83,7 +83,7 @@ export default function MissionScene() {
     <section ref={root} className={css.mission}>
       <div className={css.mission_inner}>
         <div className={css.mission_frame} data-frame>
-          <LoopVideo src="/vedios/mission.mp4" label="Living room renovation transformation" manual lazy />
+          <LoopVideo src="/vedios/mission.mp4" label="Living room renovation transformation" manual lazy poster="/vedios/posters/mission.jpg" />
           <div className={css.mission_caption} data-caption>
             <span className={home.eyebrow_light}>{MISSION.eyebrow}</span>
             <h2>{MISSION.title}</h2>

@@ -91,7 +91,7 @@ export default function Opening() {
           </div>
 
           <div className={css.wipe} data-wipe>
-            <LoopVideo src="/vedios/welcome.mp4" label="Technicians reviewing a villa floor plan in Dubai" lazy />
+            <LoopVideo src="/vedios/welcome.mp4" label="Technicians reviewing a villa floor plan in Dubai" poster="/vedios/posters/welcome.jpg" lazy />
             <div className={css.wipe_badge}>
               <strong>10+</strong>
               <span>Years in Dubai</span>

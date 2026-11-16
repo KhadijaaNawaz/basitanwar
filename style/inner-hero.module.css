@@ -102,3 +102,15 @@
     min-height: 0;
   }
 }
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    padding-block: 6rem 2rem;
+  }
+  .inner {
+    min-height: 0;
+  }
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+}

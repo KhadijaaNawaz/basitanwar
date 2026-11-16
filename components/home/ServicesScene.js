@@ -174,7 +174,7 @@ export default function ServicesScene() {
       </div>
 
       <div className={css.expand} data-expand>
-        <LoopVideo src="/vedios/mission.mp4" label="Living room renovation transformation" manual lazy />
+        <LoopVideo src="/vedios/mission.mp4" label="Living room renovation transformation" manual lazy poster="/vedios/posters/mission.jpg" />
         <div className={css.expand_label} data-label>
           {TRANSFORMATION.label}
         </div>

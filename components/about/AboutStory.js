@@ -38,7 +38,7 @@ export default function AboutStory() {
         <div className={css.story_grid}>
           <div className={css.story_media}>
             <div className={css.portrait} data-portrait>
-              <LoopVideo src="/vedios/welcome.mp4" label="Technicians reviewing a villa floor plan in Dubai" lazy />
+              <LoopVideo src="/vedios/welcome.mp4" label="Technicians reviewing a villa floor plan in Dubai" poster="/vedios/posters/welcome.jpg" lazy />
               <div className={home.wipe_badge}>
                 <strong>{STORY.badge.value}</strong>
                 <span>{STORY.badge.label}</span>
