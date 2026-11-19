@@ -4,6 +4,7 @@ import styles from "../../../styles/blog.module.css";
 import ServiceComponent from "@/components/updated-themes/layout/service-component";
 import AboutHeroSection from "@/components/updated-themes/heroSection/about-herosection";
 import detail from "@/style/service-detail.module.css";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
@@ -200,7 +201,8 @@ function PlumbingService() {
       </div>
       </section>
     </div>
-    <ServiceExtras />
+    <ServiceWork />
+      <ServiceExtras />
     <BottomSection footerheading={'Renovation Services by Basat Anwer Technical Services LLC'}/>
     </div>
   );

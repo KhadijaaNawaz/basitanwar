@@ -7,6 +7,7 @@ import ServiceComponent from "@/components/updated-themes/layout/service-compone
 import detail from "@/style/service-detail.module.css";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceFaq from "@/components/services/ServiceFaq";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -104,7 +105,8 @@ function ElectricianService() {
         </div>
       </section>
       </div>
-      <ServiceFaq items={[
+      <ServiceWork />
+    <ServiceFaq items={[
           { question: "How much does it cost to install or repair electrical fixtures in Dubai?", answer: "The cost of electrical fixture installation or repair depends on the type of fixture and the complexity of the installation or repair work. Contact us for a free estimate." },
           { question: "Do you provide emergency electrical fixture repairing services in Dubai?", answer: "Yes, we do. Our team is available 24/7 to handle emergency electrical fixture repairing services in Dubai." },
           { question: "Can you install electrical fixtures in high-ceiling areas?", answer: "Yes, we can. Our team has the necessary equipment and expertise to install electrical fixtures in high-ceiling areas safely." }

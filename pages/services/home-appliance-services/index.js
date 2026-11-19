@@ -7,6 +7,7 @@ import AboutHeroSection from "@/components/updated-themes/heroSection/about-hero
 import detail from "@/style/service-detail.module.css";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceFaq from "@/components/services/ServiceFaq";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -147,7 +148,8 @@ function HomeApplianceService() {
       </section>
       </div>
 
-      <ServiceFaq items={[
+      <ServiceWork />
+    <ServiceFaq items={[
           { question: "What kind of appliances do you repair?", answer: "We provide repair services for a variety of appliances, including refrigerators, washing machines, dishwashers, ovens, and more. If you're unsure whether we can repair your appliance, please contact us, and we'll be happy to discuss your needs." },
           { question: "How long does it take to repair an appliance?", answer: "The duration of the repair depends on the extent of the damage and the type of appliance. In most cases, we aim to complete repairs within 24-48 hours, depending on the availability of spare parts. We understand the inconvenience caused by a broken appliance and strive to provide fast and efficient services to minimize the downtime." },
           { question: "Do you provide warranty on your repairs?", answer: "Yes, we provide a warranty on all repairs we undertake. Our warranty covers both the spare parts and labor used in the repair. In the unlikely event of a problem with the repair, please contact us, and we'll do our best to resolve the issue." },

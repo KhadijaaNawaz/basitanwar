@@ -7,6 +7,7 @@ import ServiceComponent from "@/components/updated-themes/layout/service-compone
 import detail from "@/style/service-detail.module.css";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceFaq from "@/components/services/ServiceFaq";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -108,7 +109,8 @@ function PlumbingService() {
           </div>
         </section>
       </div>
-      <ServiceFaq items={[
+      <ServiceWork />
+    <ServiceFaq items={[
           { question: "What kind of buildings do you clean?", answer: "We offer cleaning services for a variety of buildings, including residential buildings, commercial buildings, industrial buildings, schools, hospitals, and more. Our team is trained to handle any type of cleaning task, no matter the size or complexity of the building." },
           { question: "Do you provide specialized cleaning services for specific industries?", answer: "Yes, we provide specialized cleaning services for specific industries, including healthcare, hospitality, retail, and more. We understand that each industry has unique cleaning requirements, and we tailor our services to meet those specific needs." },
           { question: "What cleaning products do you use?", answer: "We use only environmentally friendly and non-toxic cleaning products to ensure that your buildings are safe and healthy for your occupants. Our cleaning products are also highly effective in removing dirt, grime, and stains from all surfaces." },

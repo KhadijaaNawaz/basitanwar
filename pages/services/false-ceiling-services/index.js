@@ -7,6 +7,7 @@ import ServiceComponent from "@/components/updated-themes/layout/service-compone
 import detail from "@/style/service-detail.module.css";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceFaq from "@/components/services/ServiceFaq";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -182,7 +183,8 @@ function FalseCeilingService() {
         </div>
       </section>
       </div>
-      <ServiceFaq items={[
+      <ServiceWork />
+    <ServiceFaq items={[
           { question: "What materials are used for false ceilings and partitions?", answer: "False ceilings and partitions can be made from various materials, such as drywall, gypsum, metal, wood, glass, or plastic. The choice of material depends on factors such as budget, aesthetic preferences, and functional requirements." },
           { question: "How long does it take to install false ceilings and partitions?", answer: "The installation time depends on the size of the project, the complexity of the design, and the type of materials used. Typically, a false ceiling or partition installation can take anywhere from a few days to a few weeks." },
           { question: "How often should false ceilings and partitions be maintained?", answer: "False ceilings and partitions should be inspected and maintained regularly to ensure their safety, efficiency, and longevity. The frequency of maintenance depends on factors such as the age of the installation, the level of usage, and the type of materials used." },

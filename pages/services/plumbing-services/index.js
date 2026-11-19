@@ -7,6 +7,7 @@ import AboutHeroSection from "@/components/updated-themes/heroSection/about-hero
 import detail from "@/style/service-detail.module.css";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceFaq from "@/components/services/ServiceFaq";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -95,6 +96,7 @@ function PlumbingService() {
       
     </section>
     </div>
+    <ServiceWork />
     <ServiceFaq items={[
           { question: "Can I perform plumbing and sanitary services myself?", answer: "While some minor repairs may be possible to perform on your own, it is always recommended to hire a professional company to handle any plumbing or sanitary issues. Attempting to fix the issue yourself may lead to further damage, which can result in costly repairs." },
           { question: "How often should I schedule maintenance services?", answer: "It is recommended to schedule maintenance services at least once a year, depending on the age and condition of your plumbing and sanitary systems. Regular maintenance can help detect minor issues before they escalate into more significant problems." },

@@ -36,3 +36,4 @@ yarn-error.log*
 
 # local production-build folder (see NEXT_DIST in next.config.js)
 .next-prod
+.next-dev

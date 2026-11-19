@@ -7,6 +7,7 @@ import AboutHeroSection from "@/components/updated-themes/heroSection/about-hero
 import detail from "@/style/service-detail.module.css";
 import ServiceExtras from "@/components/services/ServiceExtras";
 import ServiceSignature from "@/components/services/ServiceSignature";
+import ServiceWork from "@/components/services/ServiceWork";
 import ServiceFaq from "@/components/services/ServiceFaq";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -196,7 +197,8 @@ function FloorWallTilingService() {
       </section>
       </div>
 
-      <ServiceFaq items={[
+      <ServiceWork />
+    <ServiceFaq items={[
           { question: "How long does a typical tile installation project take?", answer: "The timeline for a tile installation project varies depending on the scope and complexity. A thorough timeline will be given to you by our staff during the initial meeting." },
           { question: "Do you offer a warranty on your tile installation services?", answer: "Yes, we do give a warranty on the quality of our tile installation work, giving you confidence in the reliability of our solutions." },
           { question: "Can you assist in tile selection and design?", answer: "Absolutely. Our team is knowledgeable about a wide range of tile options and can offer guidance in selecting the best tiles for your project. We also provide design recommendations to ensure a cohesive and aesthetically pleasing result." }
