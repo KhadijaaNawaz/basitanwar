@@ -4,9 +4,8 @@ import Image from 'next/image'
 import LoopVideo from '@/components/redesign/LoopVideo'
 import { SERVICES } from '@/components/redesign/ServicesGrid'
 import { Arrow } from '@/components/redesign/Section'
-import { Tool } from './Tools'
 import useScene, { reveal } from './useScene'
-import { SERVICE_TOOL, TRANSFORMATION } from './content'
+import { TRANSFORMATION } from './content'
 import css from '@/style/home.module.css'
 
 const N = SERVICES.length
@@ -130,8 +129,7 @@ export default function ServicesScene() {
               <span className={css.eyebrow}>All-Inclusive Solutions</span>
               <h2 className={css.title}>Our Services</h2>
               <p className={css.intro_p}>
-                Every trade your home needs, under one roof. Scroll across the bench — or point at
-                a tool to see its service.
+                Every trade your home needs, under one roof. Scroll across to see each service.
               </p>
             </div>
             <div className={css.svc_meta}>
@@ -161,7 +159,6 @@ export default function ServicesScene() {
                 <span className={css.card_num}>{pad(i)}</span>
                 <span className={css.card_stage}>
                   <Image className={css.card_photo} src={s.image} alt="" fill sizes="320px" loading="lazy" />
-                  <Tool name={SERVICE_TOOL[s.link]} className={css.card_tool} />
                 </span>
                 <h3 className={css.card_title}>{s.title}</h3>
                 <p className={css.card_desc}>{s.desc}</p>
