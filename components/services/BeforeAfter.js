@@ -3,11 +3,11 @@ import Image from 'next/image'
 import home from '@/style/home.module.css'
 import css from '@/style/before-after.module.css'
 
-// Illustrative pairs from the photo library. Swap for real project photos when available.
+// All three stages are frames from the same fixed shot of one renovation (our own film), so each pair is the same area.
 export const PAIRS = [
-  { title: 'Paint & finish', before: '/images/painting_pic.jpg', after: '/images/hm6.webp', note: 'Bare room to a finished, lived-in space.' },
-  { title: 'Flooring', before: '/images/floor1.webp', after: '/images/flor-tile.jpg', note: 'Open sub-floor to a clean, level finish.' },
-  { title: 'Renovation', before: '/images/home-maintenance.webp', after: '/images/hm4.webp', note: 'A gutted room, handed back ready to use.' },
+  { title: 'Bare site to finished room', before: '/images/work/room-site.webp', after: '/images/work/room-finished.webp', note: 'Dust sheets and bare plaster, handed over furnished and ready.', wide: true },
+  { title: 'Build-out', before: '/images/work/room-site.webp', after: '/images/work/room-built.webp', note: 'Walls, joinery, ceiling and flooring completed.' },
+  { title: 'Styling & handover', before: '/images/work/room-built.webp', after: '/images/work/room-finished.webp', note: 'Lighting, furniture and finishing touches added.' },
 ]
 
 function Slider({ pair }) {
@@ -51,7 +51,7 @@ function Slider({ pair }) {
   }
 
   return (
-    <figure className={css.item} data-shown={shown}>
+    <figure className={`${css.item} ${pair.wide ? css.wide : ''}`} data-shown={shown}>
       <div
         ref={box}
         className={css.frame}
@@ -59,9 +59,9 @@ function Slider({ pair }) {
         onPointerDown={down}
         onPointerMove={(e) => e.buttons && move(e.clientX)}
       >
-        <Image src={pair.after} alt={`${pair.title}: after`} fill sizes="(max-width: 800px) 92vw, 30vw" loading="lazy" />
+        <Image src={pair.after} alt={`${pair.title}: after`} fill sizes="(max-width: 800px) 92vw, 60vw" loading="lazy" />
         <div className={css.before}>
-          <Image src={pair.before} alt={`${pair.title}: before`} fill sizes="(max-width: 800px) 92vw, 30vw" loading="lazy" />
+          <Image src={pair.before} alt={`${pair.title}: before`} fill sizes="(max-width: 800px) 92vw, 60vw" loading="lazy" />
         </div>
         <span className={`${css.tag} ${css.tag_b}`}>Before</span>
         <span className={`${css.tag} ${css.tag_a}`}>After</span>
@@ -94,7 +94,7 @@ export default function BeforeAfter({ title = 'Before & after', eyebrow = 'The d
         <div className={css.grid}>
           {pairs.map((p) => <Slider key={p.title} pair={p} />)}
         </div>
-        <p className={css.fine}>Illustrative examples.</p>
+        <p className={css.fine}>Frames from one of our renovation films: same room, same camera position.</p>
       </div>
     </section>
   )
