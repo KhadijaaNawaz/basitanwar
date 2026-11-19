@@ -2,7 +2,7 @@ import React from "react";
 import LatestGallery from "@/components/gallery/LatestGallery";
 import { PhotoWall, WORK } from "@/components/services/ServiceWork";
 import { PhotoMarquee, CraftSteps } from "@/components/services/Showcase";
-import BeforeAfter from "@/components/services/BeforeAfter";
+import BeforeAfter, { PAIRS } from "@/components/services/BeforeAfter";
 import AboutHeroSection from "@/components/updated-themes/heroSection/about-herosection";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
@@ -18,7 +18,7 @@ export default function index() {
     <>
       <AboutHeroSection  head_title={"Projects"} heading={"Recent Work"} imageurl={"/updated-images/idea.png"}/>
       <LatestGallery />
-      <BeforeAfter />
+      <BeforeAfter title="Before & after: more jobs" pairs={PAIRS.filter((p) => ["Door painting", "Bedroom", "Bathroom", "Garage floor"].includes(p.title))} />
       <PhotoWall items={MIX} eyebrow="On site" title="Our crews, at work" note="Painting, cooling, wiring, plumbing, joinery, ceilings, tiles and cleaning across Dubai." />
       <PhotoMarquee eyebrow="More of our work" title="From first coat to final clean" />
       <BottomSection footerheading={'Our Recently Done Projects'}/>

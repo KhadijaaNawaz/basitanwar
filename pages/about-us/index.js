@@ -9,7 +9,6 @@ import TradesIndex from "@/components/about/TradesIndex";
 import ValuesRibbon from "@/components/about/ValuesRibbon";
 import AboutClose from "@/components/about/AboutClose";
 import { PhotoMarquee, CraftSteps } from "@/components/services/Showcase";
-import BeforeAfter from "@/components/services/BeforeAfter";
 import home from "@/style/home.module.css";
 
 /**
@@ -27,7 +26,6 @@ function Index() {
         <MissionScene />
         <ValuesRibbon />
         <CraftSteps />
-        <BeforeAfter />
         <PhotoMarquee />
         <TeamScene />
         <AboutClose />
