@@ -69,12 +69,12 @@ function Slider({ pair }) {
         onPointerDown={down}
         onPointerMove={(e) => e.buttons && move(e.clientX)}
       >
-        <Image src={pair.after} alt={`${pair.title}: after`} fill sizes="(max-width: 800px) 92vw, 60vw" loading="lazy" />
+        <Image src={pair.after} alt={`${pair.title}: handed over`} fill sizes="(max-width: 800px) 92vw, 60vw" loading="lazy" />
         <div className={css.before}>
-          <Image src={pair.before} alt={`${pair.title}: before`} fill sizes="(max-width: 800px) 92vw, 60vw" loading="lazy" />
+          <Image src={pair.before} alt={`${pair.title}: as found`} fill sizes="(max-width: 800px) 92vw, 60vw" loading="lazy" />
         </div>
-        <span className={`${css.tag} ${css.tag_b}`}>Before</span>
-        <span className={`${css.tag} ${css.tag_a}`}>After</span>
+        <span className={`${css.tag} ${css.tag_b}`}>As found</span>
+        <span className={`${css.tag} ${css.tag_a}`}>Handed over</span>
         <span className={css.handle} aria-hidden="true"><i /></span>
         <input
           className={css.range}
@@ -83,9 +83,9 @@ function Slider({ pair }) {
           max="100"
           value={Math.round(pos)}
           onChange={(e) => { setTouched(true); setPos(+e.target.value) }}
-          aria-label={`${pair.title}: drag to compare before and after`}
+          aria-label={`${pair.title}: slide to reveal the transformation`}
         />
-        {!touched && <span className={css.hint}>Drag to compare</span>}
+        {!touched && <span className={css.hint}>Slide to reveal</span>}
       </div>
       <figcaption>
         <b>{pair.title}</b>
@@ -95,7 +95,7 @@ function Slider({ pair }) {
   )
 }
 
-export default function BeforeAfter({ title = 'Before & after', eyebrow = 'The difference', pairs = PAIRS }) {
+export default function BeforeAfter({ title = 'Same space, new life', eyebrow = 'The transformation', pairs = PAIRS }) {
   const root = useGrow('[data-frame]', { from: 0.7, y: 40, end: 'top 45%' })
   const credits = pairs.filter((p) => p.credit)
   return (
