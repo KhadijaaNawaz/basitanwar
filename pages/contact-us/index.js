@@ -15,6 +15,7 @@ import Link from "next/link";
 import css from "@/style/contact-page.module.css";
 import home from "@/style/home.module.css";
 import useScene, { reveal } from "@/components/home/useScene";
+import { PhotoMarquee, CraftSteps } from "@/components/services/Showcase";
 import AboutHeroSection from "@/components/updated-themes/heroSection/about-herosection";
 
 export default function Index() {
@@ -224,6 +225,8 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <CraftSteps title="What happens after you message us" />
 
       <section className={css.map}>
         <div className={home.container}>

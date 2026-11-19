@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import css from "@/style/home.module.css";
+import BeforeAfter from "@/components/services/BeforeAfter";
 import ToolDefs from "@/components/home/ToolDefs";
 import Opening from "@/components/home/Opening";
 import ServicesScene from "@/components/home/ServicesScene";
@@ -37,6 +38,7 @@ function Index() {
       <WhyScene />
       <EmergencyScene />
       <ProjectsScene />
+      <BeforeAfter />
 
       <section className={`${css.band} ${css.band_tint}`}>
         <div className={css.container}>

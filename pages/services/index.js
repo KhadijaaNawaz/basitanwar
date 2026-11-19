@@ -5,6 +5,7 @@ import ServiceStack from "@/components/services/ServiceStack";
 import VideoJourney from "@/components/services/VideoJourney";
 import ServicesClose from "@/components/services/ServicesClose";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
+import { PhotoMarquee, CraftSteps } from "@/components/services/Showcase";
 import home from "@/style/home.module.css";
 
 /**
@@ -19,6 +20,7 @@ function Index() {
         <ServicesHero />
         <ServiceStack />
         <VideoJourney />
+        <PhotoMarquee eyebrow="Our work" title="Real jobs, real finish" />
         <ServicesClose />
       </div>
       <BottomSection footerheading={"What We Do (Our Services)"} />

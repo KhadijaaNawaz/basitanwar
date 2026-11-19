@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import LoopVideo from '@/components/redesign/LoopVideo'
 import { SERVICES } from '@/components/redesign/ServicesGrid'
 import { Arrow } from '@/components/redesign/Section'
@@ -159,6 +160,7 @@ export default function ServicesScene() {
               <Link href={s.link} className={css.card_link}>
                 <span className={css.card_num}>{pad(i)}</span>
                 <span className={css.card_stage}>
+                  <Image className={css.card_photo} src={s.image} alt="" fill sizes="320px" loading="lazy" />
                   <Tool name={SERVICE_TOOL[s.link]} className={css.card_tool} />
                 </span>
                 <h3 className={css.card_title}>{s.title}</h3>
