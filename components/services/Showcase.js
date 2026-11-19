@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import useGrow from '@/components/services/useGrow'
 import home from '@/style/home.module.css'
 import css from '@/style/showcase.module.css'
 
@@ -18,7 +19,7 @@ export const ROW_B = [
 function Row({ items, reverse }) {
   const list = [...items, ...items] // duplicated so the loop is seamless
   return (
-    <div className={`${css.row} ${reverse ? css.rev : ''}`} aria-hidden="true">
+    <div className={`${css.row} ${reverse ? css.rev : ''}`} aria-hidden="true" data-grow>
       <div className={css.track}>
         {list.map((f, i) => (
           <span className={css.tile} key={`${f}-${i}`}>
@@ -32,8 +33,9 @@ function Row({ items, reverse }) {
 
 /** Two slow, opposite-moving rows of job photos. Static (scrollable) for reduced motion. */
 export function PhotoMarquee({ eyebrow = 'Across Dubai', title = 'Every trade, one crew' }) {
+  const root = useGrow('[data-grow]', { from: 0.8, y: 30, start: 'top 100%', end: 'top 60%' })
   return (
-    <section className={css.marquee} aria-label={title}>
+    <section ref={root} className={css.marquee} aria-label={title}>
       <div className={home.container}>
         <span className={home.eyebrow}>{eyebrow}</span>
         <h2 className={css.title}>{title}</h2>
@@ -53,14 +55,15 @@ const STEPS = [
 
 /** Four-step "how a job goes" strip with a real photograph for each step. */
 export function CraftSteps({ title = 'How a job goes' }) {
+  const root = useGrow('[data-grow]', { from: 0.74, y: 50 })
   return (
-    <section className={css.steps}>
+    <section ref={root} className={css.steps}>
       <div className={home.container}>
         <span className={home.eyebrow}>Our process</span>
         <h2 className={css.title}>{title}</h2>
         <ol className={css.stepgrid}>
           {STEPS.map(([n, h, p, img]) => (
-            <li key={n} className={css.step}>
+            <li key={n} className={css.step} data-grow>
               <span className={css.stepimg}>
                 <Image src={I(img)} alt="" fill sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 22vw" loading="lazy" />
                 <b>{n}</b>

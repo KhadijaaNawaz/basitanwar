@@ -1,13 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import useGrow from '@/components/services/useGrow'
 import home from '@/style/home.module.css'
 import css from '@/style/before-after.module.css'
 
-// All three stages are frames from the same fixed shot of one renovation (our own film), so each pair is the same area.
+const FK = (id, by) => ({ by, url: `https://www.flickr.com/photos/${id}` })
+const W = (n) => [`/images/work/${n}-before.webp`, `/images/work/${n}-after.webp`]
+
+// Pair 1 is two frames from the same fixed shot of one renovation (our own film).
+// The rest are separate real jobs, each pair shot from the same spot (Creative Commons, credited below).
 export const PAIRS = [
   { title: 'Bare site to finished room', before: '/images/work/room-site.webp', after: '/images/work/room-finished.webp', note: 'Dust sheets and bare plaster, handed over furnished and ready.', wide: true },
-  { title: 'Build-out', before: '/images/work/room-site.webp', after: '/images/work/room-built.webp', note: 'Walls, joinery, ceiling and flooring completed.' },
-  { title: 'Styling & handover', before: '/images/work/room-built.webp', after: '/images/work/room-finished.webp', note: 'Lighting, furniture and finishing touches added.' },
+  { title: 'Door painting', before: W('door')[0], after: W('door')[1], note: 'A tired door given a bold, clean finish.', credit: FK('37996646802@N01/14910162996', 'cogdogblog') },
+  { title: 'Bedroom', before: W('bedroom')[0], after: W('bedroom')[1], note: 'An empty room made ready to live in.', credit: FK('12670507@N02/13893726342', 'gamene') },
+  { title: 'Bathroom', before: W('bath')[0], after: W('bath')[1], note: 'Dark and dated to bright and clean.', credit: FK('12670507@N02/13875890294', 'gamene') },
+  { title: 'Kitchen cabinets', before: W('kitchen')[0], after: W('kitchen')[1], note: 'Cabinets, tiles and floor refreshed.', credit: FK('9470149@N08/3477701849', 'brad_holt') },
+  { title: 'Dining room', before: W('table')[0], after: W('table')[1], note: 'New colour, lighting and styling.', credit: FK('9470149@N08/3477701133', 'brad_holt') },
+  { title: 'Garage floor', before: W('floor')[0], after: W('floor')[1], note: 'Stained concrete sealed with a smooth coating.', credit: FK('38041294@N05/7854510982', 'Decorative Concrete Kingdom') },
 ]
 
 function Slider({ pair }) {
@@ -55,6 +64,7 @@ function Slider({ pair }) {
       <div
         ref={box}
         className={css.frame}
+        data-frame
         style={{ '--p': `${pos}%` }}
         onPointerDown={down}
         onPointerMove={(e) => e.buttons && move(e.clientX)}
@@ -86,15 +96,25 @@ function Slider({ pair }) {
 }
 
 export default function BeforeAfter({ title = 'Before & after', eyebrow = 'The difference', pairs = PAIRS }) {
+  const root = useGrow('[data-frame]', { from: 0.7, y: 40, end: 'top 45%' })
+  const credits = pairs.filter((p) => p.credit)
   return (
-    <section className={css.sec}>
+    <section ref={root} className={css.sec}>
       <div className={home.container}>
         <span className={home.eyebrow}>{eyebrow}</span>
         <h2 className={css.title}>{title}</h2>
         <div className={css.grid}>
           {pairs.map((p) => <Slider key={p.title} pair={p} />)}
         </div>
-        <p className={css.fine}>Frames from one of our renovation films: same room, same camera position.</p>
+        <p className={css.fine}>
+          First pair: frames from our own renovation film. Others: photos under Creative Commons BY 2.0 —{' '}
+          {credits.map((c, i) => (
+            <span key={c.by + i}>
+              <a href={c.credit.url} target="_blank" rel="noopener noreferrer">{c.credit.by}</a>
+              {i < credits.length - 1 ? ', ' : '.'}
+            </span>
+          ))}
+        </p>
       </div>
     </section>
   )

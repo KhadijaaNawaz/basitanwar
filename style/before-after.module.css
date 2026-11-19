@@ -1,6 +1,6 @@
 .sec { background: var(--surface); padding: clamp(3rem, 6vw, 5.5rem) 0; }
 .title { font-size: var(--text-h2); letter-spacing: -0.02em; color: var(--ink); margin: 0.6rem 0 clamp(1.5rem, 3vw, 2.5rem); }
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
 .wide { grid-column: 1 / -1; }
 .item { margin: 0; opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
 .item[data-shown='true'] { opacity: 1; transform: none; }
@@ -22,5 +22,8 @@
 .item figcaption b { color: var(--ink); font-size: 1.05rem; }
 .item figcaption span { color: var(--ink-body); font-size: 0.92rem; }
 .fine { margin: 1.5rem 0 0; color: var(--ink-muted); font-size: 0.8rem; }
-@media (max-width: 900px) { .grid { grid-template-columns: 1fr; max-width: 30rem; } .frame { aspect-ratio: 4 / 3; } }
+@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; max-width: 30rem; } .frame { aspect-ratio: 4 / 3; } }
 @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; transition: none; } }
+.fine a { text-decoration: underline; text-underline-offset: 2px; }
+.item:not(.wide) .frame { aspect-ratio: 4 / 3; }

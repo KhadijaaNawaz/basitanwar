@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import useScene, { reveal } from '@/components/home/useScene'
+import useGrow from '@/components/services/useGrow'
 import home from '@/style/home.module.css'
 import css from '@/style/service-work.module.css'
 
@@ -23,7 +23,7 @@ export const WORK = {
 
 /** Mosaic of photos. `items` = file names inside /public/images. */
 export function PhotoWall({ items, eyebrow = 'On site', title = 'The work, in pictures', note }) {
-  const root = useScene(({ gsap, root: el }) => reveal({ gsap, root: el }, '[data-shot]'))
+  const root = useGrow('[data-shot]', { from: 0.72, y: 50 })
   return (
     <section ref={root} className={css.sec}>
       <div className={home.container}>
