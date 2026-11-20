@@ -75,7 +75,7 @@ function HomeApplianceService() {
         </div>
         </div>
         <div className={styles.image_cont}>
-          <Image src="/images/appliance_service.jpg" alt="contact image 3" width={1800} height={1200} sizes="(max-width: 1199px) 92vw, 21rem" />
+          <Image src="/images/work/appliance-after.jpg" alt="A technician testing a home appliance with a multimeter" width={1800} height={1200} sizes="(max-width: 1199px) 92vw, 21rem" />
           <h2 className={styles.h2}>
             Why Choose basatanwertech
           </h2>

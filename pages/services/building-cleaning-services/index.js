@@ -59,7 +59,7 @@ function PlumbingService() {
               </div>
             </div>
             <div className={styles.image_cont}>
-              <Image src="/images/cleaning_service.jpg" alt="cleaning image" width={1800} height={1200} sizes="(max-width: 1199px) 92vw, 21rem" />
+              <Image src="/images/work/cleaning-after.jpg" alt="Professional cleaners in PPE at work in a modern living room" width={1800} height={1200} sizes="(max-width: 1199px) 92vw, 21rem" />
               <h2 className={styles.h2}>Why Choose US</h2>
             <p className={styles.paragraph}>
               At Buildings Cleaning Services, we strive to provide our clients

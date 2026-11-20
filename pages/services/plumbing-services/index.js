@@ -89,7 +89,7 @@ function PlumbingService() {
         </div>
         </div>
         <div className={styles.image_cont}>
-          <Image src="/images/plumbing_service.webp" alt="contact image 5" width={4104} height={2736} sizes="(max-width: 1199px) 92vw, 21rem" />
+          <Image src="/images/work/dubai-plumbing-after.jpg" alt="A repaired plumbing joint, Dubai Marina" width={4104} height={2736} sizes="(max-width: 1199px) 92vw, 21rem" />
 
         </div>
       </div>

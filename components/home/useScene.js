@@ -53,13 +53,22 @@ export default function useScene(setup) {
   return root
 }
 
-/** Fade/lift anything marked data-reveal as it enters. Used on every viewport. */
+/**
+ * Fade/lift/scale anything marked data-reveal as it enters — used on every
+ * viewport, so this one animation is what most of the site's section
+ * transitions actually look like. Each element keeps its own trigger (safe
+ * for tall sections), but a small index-based delay makes elements that
+ * cross the threshold together (a row of cards, a grid) settle in as a
+ * gentle cascade rather than popping in all at once.
+ */
 export function reveal({ gsap, root }, selector = '[data-reveal]') {
-  root.querySelectorAll(selector).forEach((el) => {
+  root.querySelectorAll(selector).forEach((el, i) => {
     gsap.from(el, {
-      y: 36,
+      y: 42,
       opacity: 0,
-      duration: 0.9,
+      scale: 0.97,
+      duration: 1,
+      delay: Math.min(i * 0.05, 0.25),
       ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 88%', once: true },
     })

@@ -146,6 +146,81 @@
   transform: translateX(4px);
 }
 
+/* ---------- shared 50/50 photo + list layout (process, why-choose) ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.split_media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 28px;
+  overflow: hidden;
+}
+.split_media img {
+  object-fit: cover;
+}
+.split_video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.split_list {
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+.split_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.split_item:first-child {
+  padding-top: 0;
+}
+.split_item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.split_icon {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--accent-soft);
+  color: var(--primary);
+}
+.split_arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.split_item h3 {
+  font-size: 1.375rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.split_item p {
+  margin-top: 0.35rem;
+}
+@media (max-width: 1023.98px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .split_media {
+    order: -1;
+  }
+}
+
 /* ==========================================================================
    Scenes 1–2: hero → intro
    ========================================================================== */
@@ -659,180 +734,7 @@
    ========================================================================== */
 .proc {
   background: var(--surface);
-}
-.proc_pin {
   padding: clamp(4rem, 8vw, 7rem) 0;
-}
-.proc_grid {
-  display: grid;
-  gap: 1rem;
-}
-.rail {
-  display: none;
-}
-.proc_stage {
-  display: grid;
-  place-items: center;
-}
-.proc_svg {
-  width: min(20rem, 80%);
-  aspect-ratio: 1;
-}
-.proc_steps {
-  list-style: none;
-  position: relative;
-  display: grid;
-  gap: 1rem;
-}
-.step {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.1rem;
-  padding: 1.25rem;
-  background: var(--surface-2);
-  border-radius: var(--radius-card);
-}
-.step_tool {
-  flex: none;
-  width: 4.25rem;
-  height: 4.25rem;
-  filter: drop-shadow(0 8px 6px rgba(16, 16, 16, 0.15));
-}
-.step_num {
-  display: none;
-}
-.step h3 {
-  font-size: 1.375rem;
-  color: var(--ink);
-}
-.step p {
-  margin-top: 0.4rem;
-}
-
-.proc_pinned .proc_pin {
-  height: 100vh;
-  height: 100svh;
-  display: flex;
-  align-items: center;
-  padding: 148px 0 1.5rem;
-}
-.proc_pinned .head_stack {
-  margin-bottom: 1.5rem;
-}
-.proc_pinned .proc_grid {
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-.proc_pinned .proc_stage {
-  display: block;
-  position: relative;
-  height: min(26rem, 52vh);
-  perspective: 1100px;
-}
-.proc_pinned .proc_tool {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  opacity: 0;
-  will-change: transform, opacity;
-}
-.proc_pinned .proc_svg {
-  width: min(26rem, 100%);
-  max-height: 100%;
-}
-.proc_pinned .proc_steps {
-  gap: 0.25rem;
-  padding-left: 2.75rem;
-}
-.proc_pinned .rail {
-  display: block;
-  position: absolute;
-  left: 0.5rem;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  width: 2px;
-  background: var(--line);
-}
-.proc_pinned .rail i {
-  display: block;
-  height: 100%;
-  background: var(--primary);
-  transform: scaleY(0);
-  transform-origin: top;
-}
-.proc_pinned .step {
-  background: transparent;
-  padding: 0.75rem 0;
-  opacity: 0.3;
-  transition: opacity 0.5s var(--ease-out);
-  position: relative;
-}
-.proc_pinned .step[data-active='true'] {
-  opacity: 1;
-}
-.proc_pinned .step[data-active='done'] {
-  opacity: 0.6;
-}
-.proc_pinned .step_tool {
-  display: none;
-}
-.proc_pinned .step_num {
-  display: block;
-  position: absolute;
-  left: -2.75rem;
-  top: 0.8rem;
-  width: 1.5rem;
-  text-align: center;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--ink);
-  background: var(--surface);
-  padding: 0.15rem 0;
-}
-.proc_pinned .step h3 {
-  font-size: 1.5rem;
-}
-
-/* ==========================================================================
-   Scene 6: why us
-   ========================================================================== */
-.why {
-  overflow-x: clip; /* cards start off to the sides while they assemble */
-  background: var(--surface-2);
-  padding: clamp(4rem, 8vw, 7rem) 0;
-}
-.why_grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  perspective: 1200px;
-}
-.why_card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  padding: 2rem;
-  will-change: transform;
-}
-.why_tool {
-  width: 5.5rem;
-  height: 5.5rem;
-  margin-bottom: 1.25rem;
-  filter: drop-shadow(0 12px 8px rgba(16, 16, 16, 0.16));
-}
-.why_card h3 {
-  font-size: 1.5rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.6rem;
-}
-@media (max-width: 767.98px) {
-  .why_grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ==========================================================================
@@ -922,30 +824,85 @@
 }
 
 /* ==========================================================================
-   Scenes 8–9: work, reviews, FAQ, CTA
+   Scenes 8–9: reviews, FAQ, CTA
    ========================================================================== */
-.work {
-  background: var(--surface);
-  padding: 0 0 clamp(4rem, 8vw, 7rem);
-}
-.work .head_row {
-  margin-bottom: 2.5rem;
-}
 .band {
   padding: clamp(4rem, 8vw, 6rem) 0;
 }
 .band_tint {
   background: var(--surface-2);
 }
-.faq_narrow {
-  max-width: 52rem;
-  margin: 2rem auto 0;
+/* ---------- FAQ: a real photo beside the question list ---------- */
+.faq_band {
+  background: var(--surface);
+  padding: clamp(4rem, 8vw, 7rem) 0;
 }
-.center {
-  text-align: center;
+.faq_split {
+  display: grid;
+  grid-template-columns: minmax(16rem, 26rem) 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
 }
-.center .intro_p {
-  margin-inline: auto;
+.faq_panel {
+  background: var(--room);
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.faq_panel .eyebrow {
+  color: var(--accent-soft);
+}
+.faq_panel_num {
+  margin-top: 0.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.faq_panel_sub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+.faq_panel_list {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  gap: 0.85rem;
+  width: 100%;
+}
+.faq_panel_list li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.faq_panel_list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / 60% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / 60% no-repeat;
+}
+.faq_body .title {
+  margin-top: 0.4rem;
+}
+.faq_body .intro_p {
+  margin-bottom: 1.75rem;
+}
+@media (max-width: 899.98px) {
+  .faq_split {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cta {
@@ -1110,3 +1067,35 @@
 .card[data-on='true'] .card_photo, .card:hover .card_photo { transform: scale(1.1); }
 .card_tool { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) { .card_photo { transition: none; } }
+
+/* ==========================================================================
+   Section divider — a small decorative beat between every scene
+   ========================================================================== */
+.divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  background: var(--surface);
+  overflow: hidden;
+}
+.divider_line {
+  width: min(16rem, 60%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+}
+.divider_mark {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--primary);
+  transform: rotate(45deg) scale(0);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .divider_line { transform: scaleX(1); }
+  .divider_mark { transform: rotate(45deg) scale(1); opacity: 1; }
+}

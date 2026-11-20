@@ -7,15 +7,15 @@ import ToolDefs from "@/components/home/ToolDefs";
 import Opening from "@/components/home/Opening";
 import ServicesScene from "@/components/home/ServicesScene";
 import ProcessScene from "@/components/home/ProcessScene";
-import WhyScene from "@/components/home/WhyScene";
 import EmergencyScene from "@/components/home/EmergencyScene";
-import ProjectsScene from "@/components/home/ProjectsScene";
+import ValuesRibbon from "@/components/about/ValuesRibbon";
+import Divider from "@/components/home/Divider";
+import FaqScene from "@/components/home/FaqScene";
 import CtaScene from "@/components/home/CtaScene";
 import Lottie from "@/components/home/Lottie";
 import { LOTTIE } from "@/components/home/content";
 
 import ReviewSlider from "@/components/Reviews/reviewSlider";
-import FAQscompo from "@/components/updated-components/faqscompo";
 import BottomSection from "@/components/updated-themes/layout/bottomSection";
 
 /**
@@ -33,12 +33,21 @@ function Index() {
 
       <ToolDefs />
       <Opening />
+      <Divider />
+      <BeforeAfter
+        pairs={PAIRS.filter((p) =>
+          ["Bare site to finished room", "Kitchen, Dubai Marina", "Bedroom, JBR", "Living room, Dubai Marina", "False ceiling", "Villa dining room"].includes(p.title)
+        )}
+      />
+      <Divider />
       <ServicesScene />
+      <Divider />
       <ProcessScene />
-      <WhyScene />
+      <Divider />
       <EmergencyScene />
-      <ProjectsScene />
-      <BeforeAfter pairs={PAIRS.filter((p) => ["Bare site to finished room", "Kitchen cabinets", "Dining room"].includes(p.title))} />
+      <Divider />
+      <ValuesRibbon />
+      <Divider />
 
       <section className={`${css.band} ${css.band_tint}`}>
         <div className={css.container}>
@@ -47,18 +56,11 @@ function Index() {
         </div>
       </section>
 
-      <section className={css.band}>
-        <div className={css.container}>
-          <div className={css.center}>
-            <span className={css.eyebrow}>Do You Have</span>
-            <h2 className={css.title}>Any Questions?</h2>
-            <p className={css.intro_p}>The things customers ask us most often, answered plainly.</p>
-          </div>
-          <div className={css.faq_narrow}>
-            <FAQscompo />
-          </div>
-        </div>
-      </section>
+      <Divider />
+
+      <FaqScene />
+
+      <Divider />
 
       <CtaScene />
 

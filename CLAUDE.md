@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run dev` — dev server on **port 5173** (not 3000)
 - `npm run build` / `npm start` — production build / serve
 - `npm run lint` — `next lint` (ESLint, `eslint-config-next`)
+- `NEXT_DIST=.next-prod npm run build` (and `start`) builds/serves into a separate `distDir` so a production build can run beside `npm run dev` without clobbering `.next`.
 - There is no test suite. The README is the stock create-next-app one.
 
 ## Architecture
@@ -19,6 +20,7 @@ Marketing site for a Dubai renovation/construction company (BA Tech L.L.C), buil
 - `pages/api/sendEmail.js` — contact-form endpoint using nodemailer/Gmail; needs `EMAIL_USER` and `EMAIL_PASS` in `.env`.
 - `data/*.json` holds small local datasets (gallery, hero, team).
 - `next.config.js` whitelists the S3 image domain `travel-and-tourism.s3.amazonaws.com` for `next/image`; add any new remote image hosts there.
+- `tools/extract-frames.mjs` and `tools/recolor-lottie.py` are one-off offline scripts (not part of the app build): the former drives headless Chrome against the dev server to bake a video into a scroll-scrubbed WebP frame sequence (the `components/services/VideoJourney.js` scene it fed was reworked to crossfade static photos instead, after the baked clip turned out to carry a third-party logo — don't reintroduce a baked-video frame sequence there); the latter recolors Lottie JSON animations in `public/json/` to the site's gold/ink palette. Run manually, not via npm scripts.
 
 ## Styling (mid-redesign — read before touching CSS)
 
@@ -32,4 +34,5 @@ The branch `redesigning-web` is migrating the site to a new design-token system,
 ## Gotchas
 
 - `markdownUtilsm.mjs` is a stray, apparently unused helper (it passes un-awaited dynamic imports to `unified()`), so don't build on it.
+- `helpers/emailSend.js` is dead code too — entirely commented out (an old SendGrid-based sender), superseded by `pages/api/sendEmail.js`.
 - `.env` is tracked in git (`.gitignore` only ignores `.env*.local`) and holds email credentials — don't print or copy its values.

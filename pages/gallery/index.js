@@ -18,7 +18,13 @@ export default function index() {
     <>
       <AboutHeroSection  head_title={"Projects"} heading={"Recent Work"} imageurl={"/updated-images/idea.png"}/>
       <LatestGallery />
-      <BeforeAfter title="More spaces, transformed" eyebrow="Fresh finishes" pairs={PAIRS.filter((p) => ["Door painting", "Bedroom", "Bathroom", "Garage floor"].includes(p.title))} />
+      <BeforeAfter
+        title="More spaces, transformed"
+        eyebrow="Fresh finishes"
+        pairs={PAIRS.filter((p) =>
+          ["Entryway tiling", "Fitted wardrobe", "Wall & paint", "AC unit service", "Electrical panel", "Plumbing under sink", "Door painting", "Bathroom", "Garage floor"].includes(p.title)
+        )}
+      />
       <PhotoWall items={MIX} eyebrow="On site" title="Our crews, at work" note="Painting, cooling, wiring, plumbing, joinery, ceilings, tiles and cleaning across Dubai." />
       <PhotoMarquee eyebrow="More of our work" title="From first coat to final clean" />
       <BottomSection footerheading={'Our Recently Done Projects'}/>

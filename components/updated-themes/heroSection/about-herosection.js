@@ -17,11 +17,10 @@ import styles from "@/style/inner-hero.module.css";
  * Props are unchanged from the old hero: head_title, heading, imageurl
  * (imageurl is no longer shown). Media is picked from the route below.
  */
-const T = "/frames/trades/";
 const MEDIA = {
-  "/services/ac-services": { still: T + "f_001.webp", alt: "Technician servicing a ceiling AC unit" },
-  "/services/electrician-services": { still: T + "f_028.webp", alt: "Electrician testing a distribution board" },
-  "/services/plumbing-services": { still: T + "f_040.webp", alt: "Plumber fixing pipework under a sink" },
+  "/services/ac-services": { still: "/images/work/dubai-ac-after.jpg", alt: "Technician servicing a ceiling AC unit" },
+  "/services/electrician-services": { still: "/images/work/dubai-electrical-after.jpg", alt: "Electrician testing a distribution board" },
+  "/services/plumbing-services": { still: "/images/work/dubai-plumbing-after.jpg", alt: "Plumber fixing pipework under a sink" },
   "/services/painting-services": { still: "/images/painting_service.jpg", alt: "Painter rolling a wall" },
   "/services/carpentry-services": { still: "/images/carpentary_service.jpg", alt: "Carpenter at work" },
   "/services/false-ceiling-services": { still: "/images/ceiling_service.jpg", alt: "Finished false ceiling" },

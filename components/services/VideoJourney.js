@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SERVICES } from '@/components/redesign/ServicesGrid'
 import { Arrow } from '@/components/redesign/Section'
 import useScene from '@/components/home/useScene'
@@ -7,128 +8,43 @@ import home from '@/style/home.module.css'
 import css from '@/style/service-journey.module.css'
 
 /**
- * Scroll-scrubbed video. The engineers clip was exported to FRAMES stills
- * (public/frames/trades, see tools/extract-frames.mjs) and is drawn on a
- * canvas: scrolling moves the film forward and back with no seek lag, and
- * the highlighted service changes as the film moves. Phones: the same
- * frames play on a loop while visible (no pinning). Reduced motion: the
- * first frame and a plain list.
+ * Pinned service list beside a photo that crossfades with the active item.
+ * Was previously a scroll-scrubbed canvas playing baked video frames
+ * (public/frames/trades, see tools/extract-frames.mjs) — pulled because
+ * every frame of that clip carried a third-party company's logo and a
+ * closing title card for a different business. This uses the same clean
+ * per-service photos as the homepage grid (components/redesign/ServicesGrid).
  */
-export const FRAMES = 87
-const src = (i) => `/frames/trades/f_${String(i + 1).padStart(3, '0')}.webp`
-// the clip shows AC, then electrical, then plumbing, then the whole team: list in that order
 const FIRST = ['/services/ac-services', '/services/electrician-services', '/services/plumbing-services']
 const LIST = [...FIRST.map((l) => SERVICES.find((s) => s.link === l)), ...SERVICES.filter((s) => !FIRST.includes(s.link))]
 const N = LIST.length
-// where (0..1 of the film) each of those three scenes ends; the remaining services share the team shot
-const CUTS = [0.17, 0.36, 0.53]
-const indexAt = (p) => {
-  const c = CUTS.findIndex((x) => p < x)
-  if (c !== -1) return c
-  return Math.min(N - 1, CUTS.length + Math.floor(((p - CUTS[2]) / (1 - CUTS[2])) * (N - CUTS.length)))
-}
 const pad = (n) => String(n + 1).padStart(2, '0')
 
 export default function VideoJourney() {
   const [active, setActive] = useState(0)
-  const canvas = useRef(null)
-  const api = useRef({ draw: () => {} })
-
-  // frame loader + drawing (independent of the scroll scene)
-  useEffect(() => {
-    const el = canvas.current
-    const ctx = el.getContext('2d')
-    const imgs = new Array(FRAMES)
-    const ready = new Array(FRAMES).fill(false)
-    let current = 0
-    let dead = false
-
-    const load = (i) => {
-      if (imgs[i]) return
-      const im = new Image()
-      im.decoding = 'async'
-      im.onload = () => {
-        ready[i] = true
-        if (i === 0) {
-          el.width = im.naturalWidth
-          el.height = im.naturalHeight
-        }
-        if (Math.abs(i - current) < 2) paint()
-      }
-      im.src = src(i)
-      imgs[i] = im
-    }
-    const paint = () => {
-      // nearest frame that has arrived, so scrubbing never shows a blank canvas
-      for (let d = 0; d < FRAMES; d++) {
-        for (const k of [current - d, current + d]) {
-          if (k >= 0 && k < FRAMES && ready[k]) {
-            if (el.width) ctx.drawImage(imgs[k], 0, 0, el.width, el.height)
-            return
-          }
-        }
-      }
-    }
-    api.current.draw = (i) => {
-      current = Math.max(0, Math.min(FRAMES - 1, i))
-      paint()
-    }
-
-    load(0)
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (!e.isIntersecting || dead) return
-        io.disconnect()
-        let i = 1
-        const next = () => {
-          if (dead || i >= FRAMES) return
-          for (let n = 0; n < 6 && i < FRAMES; n++) load(i++)
-          setTimeout(next, 60)
-        }
-        next()
-      },
-      { rootMargin: '800px 0px' }
-    )
-    io.observe(el)
-    return () => {
-      dead = true
-      io.disconnect()
-    }
-  }, [])
 
   const root = useScene(({ ScrollTrigger, root: el, full }) => {
     const bar = el.querySelector('[data-bar]')
 
     if (!full) {
-      // phones: loop the frames while the clip is on screen
-      let raf
-      let last = 0
-      let f = 0
-      const tick = (t) => {
-        if (t - last > 1000 / 14) {
-          last = t
-          f = (f + 1) % FRAMES
-          api.current.draw(f)
-        }
-        raf = requestAnimationFrame(tick)
-      }
+      // phones: no pin, just cycle the photo gently while the section is visible
+      let i = 0
+      let id = null
       const io = new IntersectionObserver(([e]) => {
-        cancelAnimationFrame(raf)
-        if (e.isIntersecting) raf = requestAnimationFrame(tick)
+        clearInterval(id)
+        if (e.isIntersecting) id = setInterval(() => setActive((i = (i + 1) % N)), 2200)
       })
-      io.observe(canvas.current)
+      io.observe(el)
       return () => {
         io.disconnect()
-        cancelAnimationFrame(raf)
-        api.current.draw(0)
+        clearInterval(id)
       }
     }
 
     el.classList.add(css.pinned)
     const apply = (p) => {
-      api.current.draw(Math.round(p * (FRAMES - 1)))
       bar.style.transform = `scaleY(${p})`
-      const idx = indexAt(p)
+      const idx = Math.min(N - 1, Math.floor(p * N))
       setActive((a) => (a === idx ? a : idx))
     }
     const st = ScrollTrigger.create({
@@ -175,10 +91,23 @@ export default function VideoJourney() {
 
           <div className={css.frame_col}>
             <div className={css.frame}>
-              <canvas ref={canvas} className={css.canvas} role="img" aria-label="Our engineers at work on different home trades" />
+              {LIST.map((s, i) => (
+                <Image
+                  key={s.link}
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  sizes="(max-width: 1023px) 20rem, 24rem"
+                  priority={i === 0}
+                  className={css.frame_img}
+                  data-on={active === i}
+                />
+              ))}
               <div className={css.shade} />
               <div className={css.tag}>
-                <small>{pad(active)} / {pad(N - 1)}</small>
+                <small>
+                  {pad(active)} / {pad(N - 1)}
+                </small>
                 <strong>{LIST[active].title}</strong>
               </div>
               <i className={css.rail}>

@@ -17,7 +17,7 @@ const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
  *
  * Desktop: the section pins. Scrolling slides a track of tool cards sideways
  * (the counter follows, hovering a card lifts its tool). The last "card" is a
- * window onto mission.mp4; once it reaches the end it GROWS to fill the
+ * window onto hero.mp4; once it reaches the end it GROWS to fill the
  * screen and that video becomes the next section (clip-path, no layout work).
  *
  * Phones / reduced motion: a swipe track / grid, then the video as a normal block.
@@ -173,7 +173,7 @@ export default function ServicesScene() {
       </div>
 
       <div className={css.expand} data-expand>
-        <LoopVideo src="/vedios/mission.mp4" label="Living room renovation transformation" manual lazy poster="/vedios/posters/mission.jpg" />
+        <LoopVideo src="/vedios/hero.mp4" label="Technician at work in a Dubai home" manual lazy />
         <div className={css.expand_label} data-label>
           {TRANSFORMATION.label}
         </div>

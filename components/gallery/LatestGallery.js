@@ -9,10 +9,11 @@ import css from "@/style/gallery-index.module.css";
 
 const FILTERS = [
   ["all", "All"],
-  ["Home Maintenance", "Home Maintenance"],
-  ["Drywall Insulation", "Drywall Insulation"],
-  ["Design & Home Maintenance", "Design & Home Maintenance"],
-  ["AC(Air Condition) & Repairing", "AC(Air Condition) & Repairing"],
+  ["Kitchen & Interiors", "Kitchen & Interiors"],
+  ["Bedrooms & Living Spaces", "Bedrooms & Living Spaces"],
+  ["Ceilings & Carpentry", "Ceilings & Carpentry"],
+  ["Flooring & Tiling", "Flooring & Tiling"],
+  ["AC & Electrical", "AC & Electrical"],
 ];
 
 /** Projects gallery: same filters, data and links as before, in the site's editorial style. */

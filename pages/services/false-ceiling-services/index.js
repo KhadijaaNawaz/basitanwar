@@ -174,7 +174,7 @@ function FalseCeilingService() {
           </div>
           </div>
           <div className={styles.image_cont}>
-            <Image src="/images/ceiling.jpg" alt="ceiling image" width={5184} height={3456} sizes="(max-width: 1199px) 92vw, 21rem" />
+            <Image src="/images/work/dubai-ceiling-after.jpg" alt="A finished false ceiling, Business Bay, Dubai" width={5184} height={3456} sizes="(max-width: 1199px) 92vw, 21rem" />
             <h2 className={styles.h2}>Contact Us Today:</h2>
             <p className={styles.paragraph}>
               If you're looking for a reliable False Ceiling company in Dubai, look no further than our team at Painting Services in Dubai. Contact us today to schedule a free consultation and let us bring your vision to life!

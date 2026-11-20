@@ -1,24 +1,29 @@
 import React from 'react'
+import CountUp from 'react-countup'
 import styles from '@/style/redesign.module.css'
 
 const STATS = [
-  { value: '10+', label: 'Years serving Dubai' },
-  { value: '10', label: 'Specialist services' },
-  { value: '24/7', label: 'Emergency callout' },
-  { value: '100%', label: 'Transparent pricing' },
+  { end: 10, suffix: '+', label: 'Years serving Dubai' },
+  { end: 10, suffix: '', label: 'Specialist services' },
+  { text: '24/7', label: 'Emergency callout' },
+  { end: 100, suffix: '%', label: 'Transparent pricing' },
 ]
 
 /**
  * Four figures inside a single card that overlaps the bottom of the hero.
- * The reference site uses the same device to tie the hero to the first
- * content band instead of leaving a hard edge between them.
+ * Numbers count up once the card scrolls into view, so the stats band
+ * reads as alive rather than a flat row of labels.
  */
 const Stats = () => (
   <div className={styles.stats_wrap}>
     <div className={styles.stats}>
       {STATS.map((stat) => (
         <div key={stat.label} className={styles.stat}>
-          <span className={styles.stat_value}>{stat.value}</span>
+          <span className={styles.stat_value}>
+            {stat.text ?? (
+              <CountUp end={stat.end} suffix={stat.suffix} duration={2.2} enableScrollSpy scrollSpyOnce />
+            )}
+          </span>
           <span className={styles.stat_label}>{stat.label}</span>
         </div>
       ))}

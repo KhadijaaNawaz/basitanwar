@@ -9,6 +9,8 @@ import AboutHeroSection from '@/components/updated-themes/heroSection/about-hero
 import Loader from '@/components/Layout/Loader';
 import Image from 'next/image';
 import BottomSection from '@/components/updated-themes/layout/bottomSection';
+import { Stage } from '@/components/services/BeforeAfter';
+import CaseStudyTimeline from '@/components/services/CaseStudyTimeline';
 
 const GallerySlug = () => {
   const router = useRouter();
@@ -77,9 +79,27 @@ const GallerySlug = () => {
                     <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
                   ))}
                 </dl>
+                {projectData.specs && (
+                  <dl className={`${css.facts} ${css.specs}`} data-r>
+                    {[["Duration", projectData.specs.duration], ["Trades", projectData.specs.trades], ["Materials", projectData.specs.materials]].map(([k, v]) => (
+                      <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                    ))}
+                  </dl>
+                )}
                 <div className={css.overview} data-r>
                   <h3>Project overview</h3>
                   <p>{projectData.projectOverview}</p>
+                </div>
+
+                {projectData.before && (
+                  <div className={css.stage_wrap} data-r>
+                    <Stage pair={{ title: projectData.name, before: projectData.before, after: projectData.img }} />
+                  </div>
+                )}
+
+                <div className={css.more} data-r>
+                  <h3>The Process</h3>
+                  <CaseStudyTimeline before={projectData.before || projectData.img} after={projectData.img} />
                 </div>
               </>
             )}

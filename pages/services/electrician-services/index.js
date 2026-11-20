@@ -92,7 +92,7 @@ function ElectricianService() {
           </div>
           </div>
           <div className={styles.image_cont}>
-            <Image src="/images/electrician_service.jpg" alt="contact image 2" width={1800} height={1308} sizes="(max-width: 1199px) 92vw, 21rem" />
+            <Image src="/images/work/dubai-electrical-after.jpg" alt="A rewired, inspected electrical panel, Deira, Dubai" width={1800} height={1308} sizes="(max-width: 1199px) 92vw, 21rem" />
             <h2 className={styles.h2}>FAQs</h2>
             <h2 className={styles.h2}>
               Customer Satisfaction:

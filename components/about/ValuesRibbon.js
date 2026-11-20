@@ -7,14 +7,14 @@ import css from '@/style/ribbon.module.css'
 
 const VALUES = ['Quality workmanship.', 'Clear communication.', 'Attention to detail.']
 
-// our own service photos; depth drives scroll parallax, pointer parallax and float height
+// our own Dubai job photos; depth drives scroll parallax, pointer parallax and float height
 const PHOTOS = [
-  { src: '/images/plumbing_service.webp', alt: 'Plumber fitting a yellow pipe', depth: 0.9, tilt: -6 },
-  { src: '/images/painting_service.jpg', alt: 'Painter rolling a wall', depth: 0.5, tilt: 4 },
-  { src: '/images/floor_tiling.webp', alt: 'Tiled floor and wall', depth: 1.2, tilt: -8 },
-  { src: '/images/electrician_service.jpg', alt: 'Electrician at work on a pole', depth: 1, tilt: 7 },
-  { src: '/images/ac_service.jpg', alt: 'AC unit being serviced', depth: 0.6, tilt: -4 },
-  { src: '/images/ceiling_service.jpg', alt: 'Finished false ceiling', depth: 0.8, tilt: 6 },
+  { src: '/images/work/dubai-plumbing-after.jpg', alt: 'A repaired plumbing joint, Dubai Marina', depth: 0.9, tilt: -6 },
+  { src: '/images/work/dubai-wall-after.jpg', alt: 'A freshly painted wall, Downtown Dubai', depth: 0.5, tilt: 4 },
+  { src: '/images/work/dubai-hallway-after.jpg', alt: 'Polished marble floor tiling, Jumeirah', depth: 1.2, tilt: -8 },
+  { src: '/images/work/dubai-electrical-after.jpg', alt: 'A rewired, inspected electrical panel, Deira', depth: 1, tilt: 7 },
+  { src: '/images/work/dubai-ac-after.jpg', alt: 'An AC unit being serviced, Al Barsha', depth: 0.6, tilt: -4 },
+  { src: '/images/work/dubai-ceiling-after.jpg', alt: 'A finished false ceiling, Business Bay', depth: 0.8, tilt: 6 },
 ]
 
 /**

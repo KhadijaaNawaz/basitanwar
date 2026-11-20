@@ -101,7 +101,7 @@ function CarpentryWork() {
             </div>
             </div>
             <div className={styles.image_cont}>
-              <Image src="/images/carpentary_service.jpg" alt="contact image" width={1002} height={708} sizes="(max-width: 1199px) 92vw, 21rem" />
+              <Image src="/images/work/dubai-wardrobe-after.jpg" alt="A finished fitted wardrobe, Downtown Dubai" width={1002} height={708} sizes="(max-width: 1199px) 92vw, 21rem" />
               <h2 className={styles.h2}>
                 Why Choose Our Wood Flooring Services?
               </h2>

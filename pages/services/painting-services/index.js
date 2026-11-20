@@ -112,7 +112,7 @@ function PaintingService() {
         </div>
         </div>
         <div className={styles.image_cont}>
-          <Image src="/images/painting_service2.jpg" alt="painting image" width={1799} height={1199} sizes="(max-width: 1199px) 92vw, 21rem" />
+          <Image src="/images/work/dubai-wall-after.jpg" alt="A freshly painted wall, Downtown Dubai" width={1799} height={1199} sizes="(max-width: 1199px) 92vw, 21rem" />
           <h2 className={styles.h2}>
             Why Choose Our Painting Services?
           </h2>

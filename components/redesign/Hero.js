@@ -33,7 +33,7 @@ const Hero = () => (
       {Data.map((slide, index) => (
         <SwiperSlide key={slide.id ?? index}>
           <div className={styles.hero_slide}>
-            <LoopVideo src={slide.videoUrl} className={styles.hero_img} />
+            <LoopVideo src={slide.videoUrl} poster={slide.poster || '/vedios/posters/mission.jpg'} className={styles.hero_img} />
             <div className={styles.hero_scrim} />
 
             <div className={styles.hero_inner}>

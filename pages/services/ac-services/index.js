@@ -74,7 +74,7 @@ function AcService() {
               </div>
             </div>
             <div className={styles.image_cont}>
-              <Image src="/images/ac_service.jpg" alt="ac image" width={1800} height={1200} sizes="(max-width: 1199px) 92vw, 21rem" />
+              <Image src="/images/work/dubai-ac-after.jpg" alt="A serviced AC unit, Al Barsha, Dubai" width={1800} height={1200} sizes="(max-width: 1199px) 92vw, 21rem" />
               <h2 className={styles.h2}>
                 Why Should You Choose Our AC Services?
               </h2>
